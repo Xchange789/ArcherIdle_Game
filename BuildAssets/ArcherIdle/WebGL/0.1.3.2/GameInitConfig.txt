@@ -10,7 +10,7 @@
         ],
         "ServerInfo":{
             "LoginType":"1",
-            "ServerType":"24"
+            "ServerType":"TG_Adult"
         },
         "TestServerInfo":{
             "LoginType":"1",
