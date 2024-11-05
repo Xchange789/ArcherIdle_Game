@@ -41,6 +41,7 @@ window.addEventListener("load", function () {
     dataUrl: buildUrl + "/0.1.3.2.data",
     frameworkUrl: buildUrl + "/0.1.3.2.framework.js",
     codeUrl: buildUrl + "/0.1.3.2.wasm",
+    symbolsUrl: buildUrl + "/0.1.3.2.symbols.json",
     streamingAssetsUrl: "StreamingAssets",
     companyName: "xchange",
     productName: "ArcherIdle",
