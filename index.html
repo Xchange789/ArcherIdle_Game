@@ -19,6 +19,7 @@
       </div>
       <div id="unity-warning"> </div>
     </div>
+    <input type="text" id="unityInputField" style="position:absolute; top:0; left:0; opacity:0; z-index:1000;" oninput="SendInputToUnity()" />
     <script src="index.js"></script>        
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script src="https://telegram.org/js/games.js"></script>
@@ -28,6 +29,14 @@
     -->
     <script src="@telegram-apps/sdk/dist/index.iife.js"></script>
     <script>
+
+      function SendInputToUnity() {
+        var inputField = document.getElementById('unityInputField');
+        var inputValue = inputField.value;
+        // 将输入的内容发送到Unity中
+        myGameInstance.SendMessage('WebGLTextInput', 'OnInputChanged', inputValue);
+      }
+      
       (function() {
         var { retrieveLaunchParams, postEvent } = window.telegramApps.sdk;
         var lp = retrieveLaunchParams();
