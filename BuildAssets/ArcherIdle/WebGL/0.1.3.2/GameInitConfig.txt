@@ -9,7 +9,7 @@
             "#1613498751455059968"
         ],
         "ServerInfo":{
-            "LoginType":"0",
+            "LoginType":"1",
             "ServerType":"TG_Adult"
         },
         "TestServerInfo":{
