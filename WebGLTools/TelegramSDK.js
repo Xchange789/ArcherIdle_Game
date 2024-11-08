@@ -8,9 +8,6 @@ window.TelegramSDK = {
 
     DoShare : function (url, text)
     {
-        var _url = UTF8ToString(url);
-        var _text = UTF8ToString(text);
-
         var { shareURL } = window.telegramApps.sdk;
         shareURL(_url, _text);
 
