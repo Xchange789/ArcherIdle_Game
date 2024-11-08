@@ -8,15 +8,13 @@ window.TelegramSDK = {
 
     DoShare : function (url, text)
     {
-        // var _url = UTF8ToString(url);
-        // var _text = UTF8ToString(text);
+        var _url = UTF8ToString(url);
+        var _text = UTF8ToString(text);
 
         var { shareURL } = window.telegramApps.sdk;
-        shareURL(url, text);
+        shareURL(_url, _text);
 
-        var backData = {TypeName:"TelegranSDKCallback",MethodName: "DoShareURL", Code: "0", Data: "OK"};
+        var backData = {TypeName:"TelegranSDKCallback",MethodName: "DoShareURL", Code: "1", Data: "OK"};
         unityInstanceRef.SendMessage("SDKCallbackMono", "CallbackToUnity", JSON.stringify(backData));
     },
 }
-
-
