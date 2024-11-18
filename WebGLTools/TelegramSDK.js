@@ -19,7 +19,7 @@ window.TelegramSDK = {
     {
         var { openLink } = window.telegramApps.sdk;
         openLink(url);
-    }
+    },
 
     openTelegramLink: function (url)
     {
