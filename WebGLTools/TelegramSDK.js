@@ -14,4 +14,16 @@ window.TelegramSDK = {
         var backData = {TypeName:"TelegranSDKCallback",MethodName: "DoShareURL", Code: "1", Data: "OK"};
         unityInstanceRef.SendMessage("SDKCallbackMono", "CallbackToUnity", JSON.stringify(backData));
     },
+
+    OpenLink: function (url)
+    {
+        var { openLink } = window.telegramApps.sdk;
+        openLink(url);
+    }
+
+    openTelegramLink: function (url)
+    {
+        var { openTelegramLink } = window.telegramApps.sdk;
+        openTelegramLink(url);
+    }
 }
