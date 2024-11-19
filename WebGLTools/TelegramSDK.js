@@ -23,7 +23,12 @@ window.TelegramSDK = {
 
     openTelegramLink: function (url)
     {
-        var { openTelegramLink } = window.telegramApps.sdk;
-        openTelegramLink(url);
+        var  { postEvent } = window.telegramApps.sdk;
+
+postEvent('web_app_open_tg_link', { path_full: url });
+
+
+        // var { openTelegramLink } = window.telegramApps.sdk;
+        // openTelegramLink(url);
     }
 }
