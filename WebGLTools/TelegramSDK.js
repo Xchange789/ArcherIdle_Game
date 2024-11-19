@@ -21,13 +21,25 @@ window.TelegramSDK = {
         openLink(url);
     },
 
+
     OpenTelegramLink: function (url)
     {
         var  { postEvent } = window.telegramApps.sdk;
-        postEvent('web_app_open_tg_link', { path_full: '/ArcherIdle_bot/' });
+        postEvent('web_app_open_tg_link', { path_full: url });
 
 
         // var { openTelegramLink } = window.telegramApps.sdk;
         // openTelegramLink(url);
     }
 }
+
+// (function (){
+//     // receive event
+//     window.TelegramGameProxy.receiveEvent =
+//         window.Telegram.WebView.receiveEvent  =
+//             window.TelegramGameProxy_receiveEvent =
+//                 (eventType, eventData) => {         
+//                     eventData = { eventType, eventData };
+//                     unityInstanceRef.SenMessage("SDKCallbackMono", "TelegramEvents", JSON.stringify(eventData));
+//                 };
+// })();
