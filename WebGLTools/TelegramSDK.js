@@ -25,7 +25,7 @@ window.TelegramSDK = {
     {
         var  { postEvent } = window.telegramApps.sdk;
 
-postEvent('web_app_open_tg_link', { path_full: url });
+postEvent('web_app_open_tg_link', { path_full: 'ArcherIdle_bot/' });
 
 
         // var { openTelegramLink } = window.telegramApps.sdk;
