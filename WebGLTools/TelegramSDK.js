@@ -21,7 +21,7 @@ window.TelegramSDK = {
         openLink(url);
     },
 
-    openTelegramLink: function (url)
+    OpenTelegramLink: function (url)
     {
         var  { postEvent } = window.telegramApps.sdk;
 
