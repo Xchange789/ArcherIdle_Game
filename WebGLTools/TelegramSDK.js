@@ -23,12 +23,11 @@ window.TelegramSDK = {
 
     OpenTelegramLink: function (url)
     {
-//         var  { postEvent } = window.telegramApps.sdk;
+        var  { postEvent } = window.telegramApps.sdk;
+        postEvent('web_app_open_tg_link', { path_full: 'ArcherIdle_bot' });
 
-// postEvent('web_app_open_tg_link', { path_full: 'ArcherIdle_bot/' });
 
-
-        var { openTelegramLink } = window.telegramApps.sdk;
-        openTelegramLink(url);
+        // var { openTelegramLink } = window.telegramApps.sdk;
+        // openTelegramLink(url);
     }
 }
