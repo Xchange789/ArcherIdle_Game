@@ -35,8 +35,9 @@ window.TelegramSDK = {
     DoPostEvent: function (eventType, eventData)
     {
         var jsonData= JSON.parse(eventData);
-        jsonData.slug="dU2TSv4maFEGQwAAX1B_zBRzDJA";
-        window.TelegramWebviewProxy.postEvent(eventType, JSON.stringify(jsonData));
+        jsonData.slug="/$dU2TSv4maFEGQwAAX1B_zBRzDJA";
+        OpenTelegramLink(jsonData.slug);
+        // window.TelegramWebviewProxy.postEvent(eventType, JSON.stringify(jsonData));
     }
 }
 
