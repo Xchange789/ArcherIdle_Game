@@ -58,12 +58,16 @@ window.TelegramSDK = {
     DoPostEvent: function (eventType, eventData)
     {
         var jsonData= JSON.parse(eventData);
-
        
-        window.Telegram.WebApp.openInvoice(" https://t.me/$"+jsonData.slug,(eventType, eventData) => {         
-            eventData = { eventType, eventData };
-            unityInstanceRef.SenMessage("SDKCallbackMono", "TelegramEvents", JSON.stringify(eventData));
+        window.Telegram.WebApp.openInvoice(" https://t.me/$"+jsonData.slug,e => {
+            console.log("payment status==>" + e),
+            "paid" == e && t(!0)
         });
+
+        // (eventType, eventData) => {         
+        //     eventData = { eventType, eventData };
+        //     unityInstanceRef.SenMessage("SDKCallbackMono", "TelegramEvents", JSON.stringify(eventData));
+        // }
 
         // return;
         // var  { postEvent } = window.telegramApps.sdk;
