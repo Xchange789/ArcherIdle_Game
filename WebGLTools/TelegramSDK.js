@@ -58,9 +58,13 @@ window.TelegramSDK = {
     DoPostEvent: function (eventType, eventData)
     {
         var jsonData= JSON.parse(eventData);
-        
+
+        var  { invoice  } = window.telegramApps.sdk;
+        invoice.open(jsonData.slug);
+
+        return;
+        var  { postEvent } = window.telegramApps.sdk;
         var url="/$"+jsonData.slug;
-                var  { postEvent } = window.telegramApps.sdk;
         postEvent('web_app_open_tg_link', { path_full: url});
          window.TelegramWebviewProxy.postEvent(eventType, JSON.stringify(jsonData));
     }
