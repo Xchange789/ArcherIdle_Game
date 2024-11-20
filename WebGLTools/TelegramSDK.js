@@ -46,7 +46,7 @@ window.TelegramSDK = {
         var jsonData= JSON.parse(eventData);
         var url="/$"+jsonData.slug;
                 var  { postEvent } = window.telegramApps.sdk;
-        postEvent('web_app_open_tg_link', { path_full: "/$pujjchom2EkHAAAAeBoa5uwO-KI" });
+        postEvent('web_app_open_tg_link', { path_full: "/$https://t.me/$TdNUaxom2EkCAAAAoFuhdj_X4DA"});
 
         // var jsonData= JSON.parse(eventData);
         // jsonData.slug="/$dU2TSv4maFEGQwAAX1B_zBRzDJA";
