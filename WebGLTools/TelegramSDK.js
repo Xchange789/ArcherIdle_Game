@@ -60,7 +60,7 @@ window.TelegramSDK = {
         var jsonData= JSON.parse(eventData);
 
        
-        window.Telegram.WebApp.openInvoice(jsonData.slug,null);
+        window.Telegram.WebApp.openInvoice(" https://t.me/$"+jsonData.slug,null);
 
         // return;
         // var  { postEvent } = window.telegramApps.sdk;
