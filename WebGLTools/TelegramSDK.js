@@ -60,7 +60,10 @@ window.TelegramSDK = {
         var jsonData= JSON.parse(eventData);
 
        
-        window.Telegram.WebApp.openInvoice(" https://t.me/$"+jsonData.slug,null);
+        window.Telegram.WebApp.openInvoice(" https://t.me/$"+jsonData.slug,(eventType, eventData) => {         
+            eventData = { eventType, eventData };
+            unityInstanceRef.SenMessage("SDKCallbackMono", "TelegramEvents", JSON.stringify(eventData));
+        });
 
         // return;
         // var  { postEvent } = window.telegramApps.sdk;
