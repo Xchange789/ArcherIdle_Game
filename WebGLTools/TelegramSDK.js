@@ -34,9 +34,7 @@ window.TelegramSDK = {
 
     DoPostEvent: function (eventType, eventData)
     {
-        var _eventType = UTF8ToString(eventType);
-        var _eventData = UTF8ToString(eventData);
-        window.TelegramWebviewProxy.postEvent(_eventType, _eventData);
+        window.TelegramWebviewProxy.postEvent(eventType, eventData);
     }
 }
 
