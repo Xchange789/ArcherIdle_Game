@@ -30,6 +30,13 @@ window.TelegramSDK = {
 
         // var { openTelegramLink } = window.telegramApps.sdk;
         // openTelegramLink(url);
+    },
+
+    DoPostEvent: function (eventType, eventData)
+    {
+        var _eventType = UTF8ToString(eventType);
+        var _eventData = UTF8ToString(eventData);
+        window.TelegramWebviewProxy.postEvent(_eventType, _eventData);
     }
 }
 
