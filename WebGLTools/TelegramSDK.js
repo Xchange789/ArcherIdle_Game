@@ -59,14 +59,14 @@ window.TelegramSDK = {
     {
         var jsonData= JSON.parse(eventData);
 
-        // var  { invoice  } = window.telegramApps.sdk;
-        // invoice.open(jsonData.slug);
+       
+        window.Telegram.WebApp.openInvoice.open(jsonData.slug);
 
         // return;
-        var  { postEvent } = window.telegramApps.sdk;
-        var url="/$"+jsonData.slug;
-        postEvent('web_app_open_tg_link', { path_full: url});
-         window.TelegramGameProxy.postEvent(eventType, JSON.stringify(jsonData));
+        // var  { postEvent } = window.telegramApps.sdk;
+        // var url="/$"+jsonData.slug;
+        // postEvent('web_app_open_tg_link', { path_full: url});
+        //  window.TelegramGameProxy.postEvent(eventType, JSON.stringify(jsonData));
     }
 }
 
