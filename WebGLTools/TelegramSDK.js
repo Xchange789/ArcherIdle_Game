@@ -57,12 +57,22 @@ window.TelegramSDK = {
 
     DoPostEvent: function (eventType, eventData)
     {
-        var jsonData= JSON.parse(eventData);
+        return new Promise( (t, e) => {
+            var jsonData= JSON.parse(eventData);
+            window.Telegram.WebApp.openInvoice(" https://t.me/$"+jsonData.slug,e => {
+                console.log("payment status==>" + e),
+                "paid" == e && t(!0)
+            })
+        }
+        )
+
+
+        // var jsonData= JSON.parse(eventData);
        
-        window.Telegram.WebApp.openInvoice(" https://t.me/$"+jsonData.slug,e => {
-            console.log("payment status==>" + e),
-            "paid" == e && t(!0)
-        });
+        // window.Telegram.WebApp.openInvoice(" https://t.me/$"+jsonData.slug,e => {
+        //     console.log("payment status==>" + e),
+        //     "paid" == e && t(!0)
+        // });
 
         // (eventType, eventData) => {         
         //     eventData = { eventType, eventData };
