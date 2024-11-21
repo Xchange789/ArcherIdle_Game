@@ -90,7 +90,7 @@ window.TelegramSDK = {
         var jsonData= JSON.parse(eventData);
         // https://t.me
         var url="/$"+jsonData.slug;
-        window.telegramApps.sdk.postEvent('web_app_open_tg_link', JSON.stringify({ path_full: url}));
+        window.telegramApps.sdk.postEvent('web_app_open_tg_link', { path_full: url});
         //  window.TelegramGameProxy.postEvent(eventType, JSON.stringify(jsonData));
     }
 }
