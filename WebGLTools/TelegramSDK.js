@@ -37,6 +37,17 @@ window.TelegramSDK = {
         unityInstanceRef.SenMessage("SDKCallbackMono", "TelegramEvents", JSON.stringify(eventData));
     });
 
+    window.Telegram.WebApp.onEvent('invoiceClosed', () => {
+        // 支付窗口被关闭，客户端可以在此处向服务器检查支付状态
+        console.log("11111");
+      });
+
+          window.Telegram.WebView.onEvent('invoiceClosed', () => {
+        // 支付窗口被关闭，客户端可以在此处向服务器检查支付状态
+        console.log("11111");
+      });
+
+
     },
 
     DoShare : function (url, text)
