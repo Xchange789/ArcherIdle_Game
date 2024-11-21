@@ -1,6 +1,10 @@
 window.TelegramSDK = {
     Init: function () {
         window.telegramApps.sdk.init();
+        window.telegramApps.sdk.on('invoice_closed',(payload)=>{
+            console.log("11111");
+        });
+
         var { retrieveLaunchParams } = window.telegramApps.sdk;
         var launchParams = retrieveLaunchParams();
         var backData = {TypeName:"TelegranSDKCallback",MethodName: "Init", Code: "1", Data: JSON.stringify(launchParams)};
@@ -37,18 +41,6 @@ window.TelegramSDK = {
         eventData = { invoice_closed, eventData };
         unityInstanceRef.SenMessage("SDKCallbackMono", "TelegramEvents", JSON.stringify(eventData));
     });
-
-    window.Telegram.WebApp.onEvent('invoiceClosed', () => {
-        // 支付窗口被关闭，客户端可以在此处向服务器检查支付状态
-        console.log("11111");
-      });
-
-          window.Telegram.WebView.onEvent('invoiceClosed', () => {
-        // 支付窗口被关闭，客户端可以在此处向服务器检查支付状态
-        console.log("11111");
-      });
-
-
     },
 
     DoShare : function (url, text)
