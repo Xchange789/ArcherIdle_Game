@@ -2,11 +2,12 @@ window.TelegramSDK = {
 
     RegisterEvent : function(eventName)
     {
-        window.telegramApps.sdk.on(eventName,(eventData)=>{
+       var removeListener = window.telegramApps.sdk.on(eventName,(eventData)=>{
             var eventType=eventName;
             var eventJson= JSON.stringify(eventData)
             eventData = { eventType, eventJson };
             unityInstanceRef.SendMessage("SDKCallbackMono", "TelegramEvents", JSON.stringify(eventData));
+            removeListener();
         });
     },
 
@@ -55,7 +56,7 @@ window.TelegramSDK = {
     {
         var jsonData= JSON.parse(eventData);
         window.Telegram.WebApp.openInvoice("https://t.me/$"+jsonData.slug)
-        TelegramSDK.RegisterEvent(eventType);
+        TelegramSDK.RegisterEvent("invoice_closed");
 
         // return;
         // var jsonData= JSON.parse(eventData);
