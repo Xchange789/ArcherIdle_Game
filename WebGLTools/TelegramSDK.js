@@ -5,7 +5,7 @@ window.TelegramSDK = {
         window.telegramApps.sdk.on('invoice_closed',(eventData)=>{
             var eventType='invoice_closed';
             eventData = { eventType, eventData };
-            unityInstanceRef.SenMessage("SDKCallbackMono", "TelegramEvents", JSON.stringify(eventData));
+            unityInstanceRef.SendMessage("SDKCallbackMono", "TelegramEvents", JSON.stringify(eventData));
         });
 
         var { retrieveLaunchParams } = window.telegramApps.sdk;
