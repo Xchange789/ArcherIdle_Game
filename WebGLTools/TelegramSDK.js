@@ -4,7 +4,7 @@ window.TelegramSDK = {
         window.telegramApps.sdk.init();
         window.telegramApps.sdk.on('invoice_closed',(payload)=>{
             var eventType='invoice_closed';
-            eventData = { eventType, eventData };
+            eventData = { eventType, payload };
             unityInstanceRef.SenMessage("SDKCallbackMono", "TelegramEvents", JSON.stringify(eventData));
         });
 
@@ -18,11 +18,11 @@ window.TelegramSDK = {
             unityInstanceRef.SenMessage("SDKCallbackMono", "TelegramEvents", JSON.stringify(eventData));
         });
         
-            // receive event
-    window.TelegramGameProxy.receiveEvent =            (eventType, eventData) => {         
-                eventData = { eventType, eventData };
-                unityInstanceRef.SenMessage("SDKCallbackMono", "TelegramEvents", JSON.stringify(eventData));
-            };
+    //         // receive event
+    // window.TelegramGameProxy.receiveEvent =            (eventType, eventData) => {         
+    //             eventData = { eventType, eventData };
+    //             unityInstanceRef.SenMessage("SDKCallbackMono", "TelegramEvents", JSON.stringify(eventData));
+    //         };
         
     window.Telegram.WebView.receiveEvent  = (eventType, eventData) => {         
                 eventData = { eventType, eventData };
