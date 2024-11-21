@@ -27,7 +27,12 @@ window.TelegramSDK = {
                 unityInstanceRef.SenMessage("SDKCallbackMono", "TelegramEvents", JSON.stringify(eventData));
             };
 
-    WebView.onEvent('invoice_closed', (eventType, eventData) => {         
+            window.Telegram.WebApp.onEvent('invoice_closed', (eventType, eventData) => {         
+        eventData = { invoice_closed, eventData };
+        unityInstanceRef.SenMessage("SDKCallbackMono", "TelegramEvents", JSON.stringify(eventData));
+    });
+
+    window.Telegram.WebView.onEvent('invoice_closed', (eventType, eventData) => {         
         eventData = { invoice_closed, eventData };
         unityInstanceRef.SenMessage("SDKCallbackMono", "TelegramEvents", JSON.stringify(eventData));
     });
