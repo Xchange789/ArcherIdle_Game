@@ -8,10 +8,10 @@ window.TelegramSDK = {
             unityInstanceRef.SenMessage("SDKCallbackMono", "TelegramEvents", JSON.stringify(eventData));
         });
 
-        // var { retrieveLaunchParams } = window.telegramApps.sdk;
-        // var launchParams = retrieveLaunchParams();
-        // var backData = {TypeName:"TelegranSDKCallback",MethodName: "Init", Code: "1", Data: JSON.stringify(launchParams)};
-        // unityInstanceRef.SendMessage("SDKCallbackMono", "CallbackToUnity", JSON.stringify(backData));
+        var { retrieveLaunchParams } = window.telegramApps.sdk;
+        var launchParams = retrieveLaunchParams();
+        var backData = {TypeName:"TelegranSDKCallback",MethodName: "Init", Code: "1", Data: JSON.stringify(launchParams)};
+        unityInstanceRef.SendMessage("SDKCallbackMono", "CallbackToUnity", JSON.stringify(backData));
 
         // window.Telegram.WebView.onEvent('invoice_closed', (eventType, eventData) => {         
         //     eventData = { eventType, eventData };
@@ -75,12 +75,12 @@ window.TelegramSDK = {
     DoPostEvent: function (eventType, eventData)
     {
         // var jsonData= JSON.parse(eventData);
-        // window.Telegram.WebApp.openInvoice(" https://t.me/$"+jsonData.slug)
+        // window.Telegram.WebApp.openInvoice("https://t.me/$"+jsonData.slug)
 
 
 
        
-        // window.Telegram.WebApp.openInvoice(" https://t.me/$"+jsonData.slug,e => {
+        // window.Telegram.WebApp.openInvoice("https://t.me/$"+jsonData.slug,e => {
         //     console.log("payment status==>" + e),
         //     "paid" == e && t(!0)
         // });
