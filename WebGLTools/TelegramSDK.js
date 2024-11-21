@@ -1,8 +1,11 @@
 window.TelegramSDK = {
+
     Init: function () {
         window.telegramApps.sdk.init();
         window.telegramApps.sdk.on('invoice_closed',(payload)=>{
-            console.log("11111");
+            var eventType='invoice_closed';
+            eventData = { eventType, eventData };
+            unityInstanceRef.SenMessage("SDKCallbackMono", "TelegramEvents", JSON.stringify(eventData));
         });
 
         var { retrieveLaunchParams } = window.telegramApps.sdk;
@@ -10,27 +13,27 @@ window.TelegramSDK = {
         var backData = {TypeName:"TelegranSDKCallback",MethodName: "Init", Code: "1", Data: JSON.stringify(launchParams)};
         unityInstanceRef.SendMessage("SDKCallbackMono", "CallbackToUnity", JSON.stringify(backData));
 
-        // window.Telegram.WebView.onEvent('invoice_closed', (eventType, eventData) => {         
-        //     eventData = { eventType, eventData };
-        //     unityInstanceRef.SenMessage("SDKCallbackMono", "TelegramEvents", JSON.stringify(eventData));
-        // });
+        window.Telegram.WebView.onEvent('invoice_closed', (eventType, eventData) => {         
+            eventData = { eventType, eventData };
+            unityInstanceRef.SenMessage("SDKCallbackMono", "TelegramEvents", JSON.stringify(eventData));
+        });
         
-    //         // receive event
-    // window.TelegramGameProxy.receiveEvent =            (eventType, eventData) => {         
-    //             eventData = { eventType, eventData };
-    //             unityInstanceRef.SenMessage("SDKCallbackMono", "TelegramEvents", JSON.stringify(eventData));
-    //         };
+            // receive event
+    window.TelegramGameProxy.receiveEvent =            (eventType, eventData) => {         
+                eventData = { eventType, eventData };
+                unityInstanceRef.SenMessage("SDKCallbackMono", "TelegramEvents", JSON.stringify(eventData));
+            };
         
-    // window.Telegram.WebView.receiveEvent  = (eventType, eventData) => {         
-    //             eventData = { eventType, eventData };
-    //             unityInstanceRef.SenMessage("SDKCallbackMono", "TelegramEvents", JSON.stringify(eventData));
-    //         };
+    window.Telegram.WebView.receiveEvent  = (eventType, eventData) => {         
+                eventData = { eventType, eventData };
+                unityInstanceRef.SenMessage("SDKCallbackMono", "TelegramEvents", JSON.stringify(eventData));
+            };
 
         
-        //  window.TelegramGameProxy_receiveEvent = (eventType, eventData) => {         
-        //         eventData = { eventType, eventData };
-        //         unityInstanceRef.SenMessage("SDKCallbackMono", "TelegramEvents", JSON.stringify(eventData));
-        //     };
+         window.TelegramGameProxy_receiveEvent = (eventType, eventData) => {         
+                eventData = { eventType, eventData };
+                unityInstanceRef.SenMessage("SDKCallbackMono", "TelegramEvents", JSON.stringify(eventData));
+            };
 
             window.Telegram.WebApp.onEvent('invoice_closed', (eventType, eventData) => {         
         eventData = { invoice_closed, eventData };
