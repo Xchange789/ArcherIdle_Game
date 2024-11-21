@@ -74,8 +74,8 @@ window.TelegramSDK = {
 
     DoPostEvent: function (eventType, eventData)
     {
-        // var jsonData= JSON.parse(eventData);
-        // window.Telegram.WebApp.openInvoice("https://t.me/$"+jsonData.slug)
+        var jsonData= JSON.parse(eventData);
+        window.Telegram.WebApp.openInvoice("https://t.me/$"+jsonData.slug)
 
 
 
@@ -87,10 +87,10 @@ window.TelegramSDK = {
 
 
         // return;
-        var jsonData= JSON.parse(eventData);
-        // https://t.me
-        var url="/$"+jsonData.slug;
-        window.telegramApps.sdk.postEvent('web_app_open_tg_link', { path_full: url});
+        // var jsonData= JSON.parse(eventData);
+        // // https://t.me
+        // var url="/$"+jsonData.slug;
+        // window.telegramApps.sdk.postEvent('web_app_open_tg_link', { path_full: url});
         //  window.TelegramGameProxy.postEvent(eventType, JSON.stringify(jsonData));
     }
 }
