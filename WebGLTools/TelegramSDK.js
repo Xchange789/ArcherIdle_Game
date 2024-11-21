@@ -74,33 +74,23 @@ window.TelegramSDK = {
 
     DoPostEvent: function (eventType, eventData)
     {
-        return new Promise( (t, e) => {
-            var jsonData= JSON.parse(eventData);
-            window.Telegram.WebApp.openInvoice(" https://t.me/$"+jsonData.slug,e => {
-                console.log("payment status==>" + e),
-                "paid" == e && t(!0)
-            })
-        }
-        )
-
-
         // var jsonData= JSON.parse(eventData);
+        // window.Telegram.WebApp.openInvoice(" https://t.me/$"+jsonData.slug)
+
+
+
        
         // window.Telegram.WebApp.openInvoice(" https://t.me/$"+jsonData.slug,e => {
         //     console.log("payment status==>" + e),
         //     "paid" == e && t(!0)
         // });
 
-        // (eventType, eventData) => {         
-        //     eventData = { eventType, eventData };
-        //     unityInstanceRef.SenMessage("SDKCallbackMono", "TelegramEvents", JSON.stringify(eventData));
-        // }
 
         // return;
-        // var  { postEvent } = window.telegramApps.sdk;
-        // var url="/$"+jsonData.slug;
-        // postEvent('web_app_open_tg_link', { path_full: url});
-        //  window.TelegramGameProxy.postEvent(eventType, JSON.stringify(jsonData));
+        var jsonData= JSON.parse(eventData);
+        var url=" https://t.me/$"+jsonData.slug;
+        window.telegramApps.sdk.postEvent.postEvent('web_app_open_tg_link', { path_full: url});
+         window.TelegramGameProxy.postEvent(eventType, JSON.stringify(jsonData));
     }
 }
 
