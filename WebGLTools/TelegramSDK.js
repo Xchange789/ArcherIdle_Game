@@ -2,7 +2,7 @@ window.TelegramSDK = {
 
     RegisterEvent : function(eventName)
     {
-       var removeListener = window.telegramApps.sdk.on(eventName,(eventData)=>{
+        var removeListener = window.telegramApps.sdk.on(eventName,(eventData)=>{
             var eventType=eventName;
             var eventJson= JSON.stringify(eventData)
             eventData = { eventType, eventJson };
@@ -52,11 +52,11 @@ window.TelegramSDK = {
         // openTelegramLink(url);
     },
 
-    DoPostEvent: function (eventType, eventData)
+    DoPostEvent: function (eventType, eventData,tgEventName)
     {
         var jsonData= JSON.parse(eventData);
         window.Telegram.WebApp.openInvoice("https://t.me/$"+jsonData.slug)
-        TelegramSDK.RegisterEvent("invoice_closed");
+        TelegramSDK.RegisterEvent(tgEventName);
 
         // return;
         // var jsonData= JSON.parse(eventData);
@@ -66,7 +66,3 @@ window.TelegramSDK = {
         //  window.TelegramGameProxy.postEvent(eventType, JSON.stringify(jsonData));
     }
 }
-
-// (function (){
-
-// })();
