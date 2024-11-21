@@ -89,8 +89,8 @@ window.TelegramSDK = {
         // return;
         var jsonData= JSON.parse(eventData);
         var url=" https://t.me/$"+jsonData.slug;
-        window.telegramApps.sdk.postEvent.postEvent('web_app_open_tg_link', { path_full: url});
-         window.TelegramGameProxy.postEvent(eventType, JSON.stringify(jsonData));
+        window.telegramApps.sdk.postEvent('web_app_open_tg_link', { path_full: url});
+        //  window.TelegramGameProxy.postEvent(eventType, JSON.stringify(jsonData));
     }
 }
 
