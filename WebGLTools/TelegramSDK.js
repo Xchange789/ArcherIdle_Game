@@ -22,10 +22,10 @@ window.TelegramSDK = {
     //         };
 
         
-         window.TelegramGameProxy_receiveEvent = (eventType, eventData) => {         
-                eventData = { eventType, eventData };
-                unityInstanceRef.SenMessage("SDKCallbackMono", "TelegramEvents", JSON.stringify(eventData));
-            };
+        //  window.TelegramGameProxy_receiveEvent = (eventType, eventData) => {         
+        //         eventData = { eventType, eventData };
+        //         unityInstanceRef.SenMessage("SDKCallbackMono", "TelegramEvents", JSON.stringify(eventData));
+        //     };
 
             window.Telegram.WebApp.onEvent('invoice_closed', (eventType, eventData) => {         
         eventData = { invoice_closed, eventData };
