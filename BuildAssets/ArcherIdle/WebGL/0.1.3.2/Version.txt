@@ -15,10 +15,10 @@
     "TestSourceVersionData":{
         "InternalResourceVersion":1,
         "UpdatePrefixUri":"StreamingAssets/",
-        "VersionListLength":852573,
-"VersionListHashCode":1184026034,
-"VersionListMd5Code":"a2e1a03805c5542eb4d0200281a80f28",
-"VersionListCompressedLength":318738,
-"VersionListCompressedHashCode":1627040374,
+        "VersionListLength":206054,
+"VersionListHashCode":-1077069818,
+"VersionListMd5Code":"8bfd02855f12a247e0faebb1be6f3f0b",
+"VersionListCompressedLength":99560,
+"VersionListCompressedHashCode":-1235287099,
     }
 }
