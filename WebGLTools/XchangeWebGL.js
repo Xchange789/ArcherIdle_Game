@@ -45,7 +45,6 @@ window.XchangeWebGL = {
             alert("fail");
             
             XchangeWebGL.reject(error);
-            
         });
     },
 
