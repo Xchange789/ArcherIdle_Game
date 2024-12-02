@@ -22,7 +22,9 @@ window.XchangeWebGL = {
         textArea.select();
         let success = document.execCommand('copy');
         textArea.remove();
+		
 		alert(success);
+		
 		return success;
     },
     
@@ -31,8 +33,10 @@ window.XchangeWebGL = {
             resolve();
         }).catch(function (error) {
             console.error('Failed to copy text: ', error);
+			
             alert(error); 
-            if( execCopy(text) )
+            
+			if( execCopy(text) )
 				resolve();
 			else
 				reject(error);
