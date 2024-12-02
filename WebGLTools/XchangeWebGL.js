@@ -11,21 +11,27 @@ window.XchangeWebGL = {
     },
 
     execCopy: function (text) {
-        let textArea = document.createElement("textarea");
-        textArea.value = text;
-        textArea.style.position = "absolute";
-        textArea.style.opacity = "0";
-        textArea.style.left = "-999999px";
-        textArea.style.top = "-999999px";
-        document.body.appendChild(textArea);
-        textArea.focus();
-        textArea.select();
-        let success = document.execCommand('copy');
-        textArea.remove();
-
-        alert(success);
-
-        return success;
+        return new Promise((resolve, reject) => {
+            let textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.position = "absolute";
+            textArea.style.opacity = "0";
+            textArea.style.left = "-999999px";
+            textArea.style.top = "-999999px";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            let success = document.execCommand('copy');
+            textArea.remove();
+            if (success) {
+                alert(success);
+                resolve();
+            }
+            else {
+                alert(success);
+                reject();
+            }
+        });
     },
 
     CopyToClipboard: function (text) {
@@ -41,10 +47,11 @@ window.XchangeWebGL = {
 
             alert(error);
 
-            if( XchangeWebGL.execCopy(text) )
+            XchangeWebGL.execCopy(text).then(() => {
                 XchangeWebGL.resolve();
-            else
-                XchangeWebGL.reject(error); ;
+            }).catch(() => {
+                XchangeWebGL.reject(error);
+            });
         });
     },
 
