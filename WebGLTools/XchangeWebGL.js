@@ -37,11 +37,11 @@ window.XchangeWebGL = {
     CopyToClipboard: function (text) {
 
         platform.clipboard(text).then(function()  {
-            alert("success"); 
+            alert("success");  
             XchangeWebGL.resolve(); 
-        }).catch(function (){            
-            alert("fail");            
-            XchangeWebGL.reject(error);
+        }).catch(function (){              
+            alert("fail");             
+            XchangeWebGL.reject(error); 
         });
 		
     },
