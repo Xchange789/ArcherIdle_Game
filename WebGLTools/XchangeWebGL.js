@@ -35,24 +35,17 @@ window.XchangeWebGL = {
     },
 
     CopyToClipboard: function (text) {
-        navigator.clipboard.writeText(text).then(function () {
 
+        platform.clipboard(text).then(function()  {
             alert("success");
 
             XchangeWebGL.resolve();
-
-        }).catch(function (error) {
-
-            console.error('Failed to copy text: ', error);
-
-            alert(error);
-
-            XchangeWebGL.execCopy(text).then(() => {
-                XchangeWebGL.resolve();
-            }).catch(() => {
-				alert("do catch");
-                XchangeWebGL.reject(error);
-            });
+        }).catch(function (){
+            
+            alert("fail");
+            
+            XchangeWebGL.reject(error);
+            
         });
     },
 
