@@ -9,7 +9,7 @@ window.XchangeWebGL = {
         var backData = {MethodName: "CopyToClipboard", Code: "0", Data: error};
         unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
     },
-    
+
     execCopy: function (text) {
         let textArea = document.createElement("textarea");
         textArea.value = text;
@@ -22,29 +22,29 @@ window.XchangeWebGL = {
         textArea.select();
         let success = document.execCommand('copy');
         textArea.remove();
-		
-		alert(success); 
-		
-		return success;
+
+        alert(success);
+
+        return success;
     },
-    
+
     CopyToClipboard: function (text) {
         navigator.clipboard.writeText(text).then(function () {
-						
-			alert("success");  		 	
-			
-            this.resolve();
-			
+
+            alert("success");
+
+            XchangeWebGL.resolve();
+
         }).catch(function (error) {
-            
-			console.error('Failed to copy text: ', error);
-			
-            alert(error); 
-            
-			if( this.execCopy(text) ) 
-				this.resolve(); 
-			else
-				this.reject(error); ;
+
+            console.error('Failed to copy text: ', error);
+
+            alert(error);
+
+            if( XchangeWebGL.execCopy(text) )
+                XchangeWebGL.resolve();
+            else
+                XchangeWebGL.reject(error); ;
         });
     },
 
