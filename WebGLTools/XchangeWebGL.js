@@ -5,7 +5,7 @@ window.XchangeWebGL = {
         unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
     },
 
-    reject: function (){
+    reject: function (error){
         var backData = {MethodName: "CopyToClipboard", Code: "0", Data: error};
         unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
     },
