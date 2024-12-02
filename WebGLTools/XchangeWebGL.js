@@ -35,7 +35,7 @@ window.XchangeWebGL = {
 			alert("success");  
 			
 			
-            resolve();
+            this.resolve();
 			
         }).catch(function (error) {
             
@@ -43,10 +43,10 @@ window.XchangeWebGL = {
 			
             alert(error); 
             
-			if( execCopy(text) )
-				resolve();
+			if( this.execCopy(text) )
+				this.resolve();
 			else
-				reject(error);
+				this.reject(error);
         });
     },
 
