@@ -5,7 +5,7 @@ window.XchangeWebGL = {
         unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
     },
 
-    reject: function (){
+    reject: function (error){
         var backData = {MethodName: "CopyToClipboard", Code: "0", Data: error};
         unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
     },
@@ -34,15 +34,14 @@ window.XchangeWebGL = {
     
     CopyToClipboard: function (text) {
         navigator.clipboard.writeText(text).then(function () {
-            var backData = {MethodName: "CopyToClipboard", Code: "1", Data: "Seccess"};
-            unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
+            this.resolve();
         }).catch(function (error) {
             console.error('Failed to copy text: ', error);
             
             this.execCopy(text).then(() => {
                 this.resolve();
             }).catch(() => {
-                this.reject();
+                this.reject(error);
             });
         });
     },
