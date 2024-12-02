@@ -1,19 +1,56 @@
 window.XchangeWebGL = {
+
+    resolve: function (){
+        var backData = {MethodName: "CopyToClipboard", Code: "1", Data: "Seccess"};
+        unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
+    },
+
+    reject: function (){
+        var backData = {MethodName: "CopyToClipboard", Code: "0", Data: error};
+        unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
+    },
+    
+    execCopy: function (text) {
+        return new Promise((resolve, reject) => {
+            let textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.position = "absolute";
+            textArea.style.opacity = "0";
+            textArea.style.left = "-999999px";
+            textArea.style.top = "-999999px";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            let success = document.execCommand('copy');
+            textArea.remove();
+            if (success) {
+                this.reject();
+            }
+            else {
+                this.reject();
+            }
+        });
+    },
+    
     CopyToClipboard: function (text) {
         navigator.clipboard.writeText(text).then(function () {
             var backData = {MethodName: "CopyToClipboard", Code: "1", Data: "Seccess"};
             unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
         }).catch(function (error) {
             console.error('Failed to copy text: ', error);
-            var backData = {MethodName: "CopyToClipboard", Code: "0", Data: error};
-            unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
+            
+            this.execCopy(text).then(() => {
+                this.resolve();
+            }).catch(() => {
+                this.reject();
+            });
         });
     },
 
 
-    SendInputToUnity: function () { 
+    SendInputToUnity: function () {
         var inputField = document.getElementById('unityInputField');
-        var inputValue = inputField.value; 
+        var inputValue = inputField.value;
         // 将输入的内容发送到Unity中
         unityInstanceRef.SendMessage('WebGLTextInput', 'OnInputChanged', inputValue);
     },
