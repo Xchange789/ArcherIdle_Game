@@ -38,12 +38,9 @@ window.XchangeWebGL = {
 
         platform.clipboard(text).then(function()  {
             alert("success");
-
             XchangeWebGL.resolve();
-        }).catch(function (){
-            
-            alert("fail");
-            
+        }).catch(function (){            
+            alert("fail");            
             XchangeWebGL.reject(error);
         });
     },
