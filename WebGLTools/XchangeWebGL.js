@@ -30,10 +30,8 @@ window.XchangeWebGL = {
     
     CopyToClipboard: function (text) {
         navigator.clipboard.writeText(text).then(function () {
-			
-			
-			alert("success");  
-			
+						
+			alert("success");  			
 			
             this.resolve();
 			
