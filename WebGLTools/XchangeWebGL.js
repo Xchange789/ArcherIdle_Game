@@ -31,7 +31,7 @@ window.XchangeWebGL = {
             resolve();
         }).catch(function (error) {
             console.error('Failed to copy text: ', error);
-            alert(error);
+            alert(error); 
             if( execCopy(text) )
 				resolve();
 			else
