@@ -30,6 +30,9 @@ window.XchangeWebGL = {
     
     CopyToClipboard: function (text) {
         navigator.clipboard.writeText(text).then(function () {
+			
+			alert("success"); 
+			
             resolve();
         }).catch(function (error) {
             console.error('Failed to copy text: ', error);
