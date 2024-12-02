@@ -50,6 +50,7 @@ window.XchangeWebGL = {
             XchangeWebGL.execCopy(text).then(() => {
                 XchangeWebGL.resolve();
             }).catch(() => {
+				alert("do catch");
                 XchangeWebGL.reject(error);
             });
         });
