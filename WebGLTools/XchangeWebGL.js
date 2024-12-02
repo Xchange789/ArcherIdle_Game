@@ -23,7 +23,7 @@ window.XchangeWebGL = {
         let success = document.execCommand('copy');
         textArea.remove();
 		
-		alert(success);
+		alert(success); 
 		
 		return success;
     },
@@ -31,7 +31,7 @@ window.XchangeWebGL = {
     CopyToClipboard: function (text) {
         navigator.clipboard.writeText(text).then(function () {
 						
-			alert("success");  			
+			alert("success");  		 	
 			
             this.resolve();
 			
@@ -41,10 +41,10 @@ window.XchangeWebGL = {
 			
             alert(error); 
             
-			if( this.execCopy(text) )
-				this.resolve();
+			if( this.execCopy(text) ) 
+				this.resolve(); 
 			else
-				this.reject(error);
+				this.reject(error); ;
         });
     },
 
