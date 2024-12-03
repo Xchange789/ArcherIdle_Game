@@ -85,5 +85,4 @@
 	}
 }
 
-  
 var platform = new platform();
