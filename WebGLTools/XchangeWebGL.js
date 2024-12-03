@@ -3,8 +3,6 @@ window.XchangeWebGL = {
     CopyToClipboard: function (text) {
 
         platform.clipboard(text).then(function()  {
-            alert("success");
-
             var backData = {MethodName: "CopyToClipboard", Code: "1", Data: "Seccess"};
             unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
             
@@ -24,7 +22,7 @@ window.XchangeWebGL = {
         unityInstanceRef.SendMessage('WebGLTextInput', 'OnInputChanged', inputValue);
     },
 
-    ShowInputField: function (x, y, width, data) { 
+    ShowInputField: function (x, y, width, data) {
         var inputField = document.getElementById('unityInputField');
         // inputField.style.left = x + 'px';
         // inputField.style.top = y + 'px';
@@ -47,4 +45,3 @@ window.XchangeWebGL = {
         });
     },
 }
-
