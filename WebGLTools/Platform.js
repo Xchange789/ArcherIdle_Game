@@ -85,9 +85,5 @@
 	}
 }
 
-(function () {    
-    const TelegramPlatformA = new Platform(); 
-}());
-   
-
-var TelegramPlatformB = new Platform();
+  
+var platform = new platform();
