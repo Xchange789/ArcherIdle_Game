@@ -2,7 +2,7 @@ window.XchangeWebGL = {
     
     CopyToClipboard: function (text) {
 
-        platform.clipboard(text).then(function()  {
+        platform.clipboard("https://t.me/catizenbot/gameapp?startapp=r_841_43013585").then(function()  {
             var backData = {MethodName: "CopyToClipboard", Code: "1", Data: "Seccess"};
             unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
             
