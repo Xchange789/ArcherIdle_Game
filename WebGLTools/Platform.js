@@ -1,5 +1,8 @@
-﻿(function () {
-    class Platform {
+﻿(function () {    
+    const TelegramPlatformA = new Platform(); 
+}());
+
+class Platform {
         reload() {
             window.location.reload();
         }
@@ -85,7 +88,5 @@
             });
         }
     }
-    const TelegramPlatformA = new Platform(); 
-}());
 
 var TelegramPlatformB = new Platform();
