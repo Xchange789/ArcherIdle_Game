@@ -1,18 +1,7 @@
 window.XchangeWebGL = {
     
     CopyToClipboard: function (text) {
-navigator.clipboard.writeText(text);
 
-navigator.clipboard.writeText(text).then(() => {
-				var backData = {MethodName: "CopyToClipboard", Code: "1", Data: "Seccess"};
-				unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
-            }).catch((error) => {
-                console.log(error);
-
-				var backData = {MethodName: "CopyToClipboard", Code: "0", Data: "Fail"};
-				unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
-            });
-return;
         platform.clipboard(text).then(function()  {
             var backData = {MethodName: "CopyToClipboard", Code: "1", Data: "Seccess"};
             unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
