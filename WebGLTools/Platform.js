@@ -85,4 +85,4 @@
 	}
 }
 
-var platform = new platform();
+var platform = new Platform();
