@@ -56,38 +56,25 @@
             }
             navigator.clipboard.writeText(text).then(() => {
                 resolve();
-            }).catch((error) => {
-                console.log(error);
+            }).catch(() => {
+                console.log('writeText error');
                 reject();
             });
         });
     }
     execCopy(text) {
         return new Promise((resolve, reject) => {
-
             let textArea = document.createElement("textarea");
-            document.body.appendChild(textArea);
             textArea.value = text;
             textArea.style.position = "absolute";
             textArea.style.opacity = "0";
             textArea.style.left = "-999999px";
             textArea.style.top = "-999999px";
-            
-            const range = document.createRange();
-            range.selectNode(textArea);
-            
-            const selection = document.getSelection();
-            if (selection.rangeCount>0) selection.removeAllRanges();
-            selection.addRange(range);
-            
-            
-
-
-            // textArea.focus();
-            // textArea.select();
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
             let success = document.execCommand('copy');
-            selection.removeAllRanges();
-            document.body.removeChild(textArea);
+            textArea.remove();
             if (success) {
                 resolve();
             }
