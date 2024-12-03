@@ -50,7 +50,7 @@
     }
     writeText(text) {
         return new Promise((resolve, reject) => {            
-            navigator && navigator.clipboard ? navigator.clipboard.writeText(text).then(() => {
+            navigator && navigator.clipboard ? navigator.clipboard.write(text).then(() => {
                 resolve();
             }).catch((error) => {
                 console.log(error);
