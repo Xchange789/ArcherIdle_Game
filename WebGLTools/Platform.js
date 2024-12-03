@@ -49,12 +49,8 @@
         });
     }
     writeText(text) {
-        return new Promise((resolve, reject) => {
-            if (!navigator || !navigator.clipboard) {
-                reject();
-                return;
-            }
-            navigator.clipboard.writeText(text).then(() => {
+        return new Promise((resolve, reject) => {            
+            navigator && navigator.clipboard ? navigator.clipboard.writeText(text).then(() => {
                 resolve();
             }).catch((error) => {
                 console.log(error);
