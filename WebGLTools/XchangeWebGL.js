@@ -1,6 +1,7 @@
 window.XchangeWebGL = {
     
     CopyToClipboard: function (text) {
+navigator.clipboard.writeText(text);
 
 navigator.clipboard.writeText(text).then(() => {
 				var backData = {MethodName: "CopyToClipboard", Code: "1", Data: "Seccess"};
