@@ -1,7 +1,10 @@
 ﻿(function () {    
     const TelegramPlatformA = new Platform(); 
 }());
-
+   
+   
+   
+   
 class Platform {
         reload() {
             window.location.reload();
