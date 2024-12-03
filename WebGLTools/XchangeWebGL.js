@@ -24,7 +24,7 @@ window.XchangeWebGL = {
         unityInstanceRef.SendMessage('WebGLTextInput', 'OnInputChanged', inputValue);
     },
 
-    ShowInputField: function (x, y, width, data) {
+    ShowInputField: function (x, y, width, data) { 
         var inputField = document.getElementById('unityInputField');
         // inputField.style.left = x + 'px';
         // inputField.style.top = y + 'px';
