@@ -85,7 +85,7 @@
             });
         }
     }
-    const var platformA = new Platform();
+    const platformA = new Platform();
 }());
 
-const var platformB = new Platform();
+var platformB = new Platform();
