@@ -55,7 +55,7 @@
             }).catch((error) => {
                 console.log(error);
                 reject();
-            });
+            }) : resolve();
         });
     }
     execCopy(text) {
