@@ -85,5 +85,8 @@
 	}
 }
 
+(function (){
+	
+}());
 
 var platform = new Platform();
