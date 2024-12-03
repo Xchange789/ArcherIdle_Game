@@ -64,17 +64,30 @@
     }
     execCopy(text) {
         return new Promise((resolve, reject) => {
+
             let textArea = document.createElement("textarea");
+            document.body.appendChild(textArea);
             textArea.value = text;
             textArea.style.position = "absolute";
             textArea.style.opacity = "0";
             textArea.style.left = "-999999px";
             textArea.style.top = "-999999px";
-            document.body.appendChild(textArea);
-            textArea.focus();
-            textArea.select();
+            
+            const range = document.createRange();
+            range.selectNode(textArea);
+            
+            const selection = document.getSelection();
+            if (selection.rangeCount>0) selection.removeAllRanges();
+            selection.addRange(range);
+            
+            
+
+
+            // textArea.focus();
+            // textArea.select();
             let success = document.execCommand('copy');
-            textArea.remove();
+            selection.removeAllRanges();
+            document.body.removeChild(textArea);
             if (success) {
                 resolve();
             }
