@@ -57,6 +57,7 @@
             navigator.clipboard.writeText(text).then(() => {
                 resolve();
             }).catch((error) => { 
+			    console.log(error);
                 console.log(error);
                 reject();
             });
