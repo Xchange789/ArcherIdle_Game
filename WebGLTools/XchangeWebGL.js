@@ -20,9 +20,9 @@ window.XchangeWebGL = {
 
     ShowInputField: function (x, y, width, data) {
         var inputField = document.getElementById('unityInputField');
-        inputField.style.left = x + 'px';
-        inputField.style.top = y + 'px';
-        inputField.style.width = width + 'px';
+        // inputField.style.left = x + 'px';
+        // inputField.style.top = y + 'px';
+        // inputField.style.width = width + 'px';
         inputField.value = data;
         inputField.style.opacity = 1;
         inputField.focus();
