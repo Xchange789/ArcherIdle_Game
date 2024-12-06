@@ -49,13 +49,17 @@
         });
     }
     writeText(text) {
-        return new Promise((resolve, reject) => {            
-            navigator && navigator.clipboard ? navigator.clipboard.write(text).then(() => {
-                resolve();
-            }).catch((error) => {
-                console.log(error);
+        return new Promise((resolve, reject) => {
+            if (!navigator || !navigator.clipboard) {
                 reject();
-            }) : resolve();
+                return;
+            }
+            navigator.clipboard.writeText(text).then(() => {
+                resolve();
+            }).catch(() => {
+                console.log('writeText error');
+                reject();
+            });
         });
     }
     execCopy(text) {

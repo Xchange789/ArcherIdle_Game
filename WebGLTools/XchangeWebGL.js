@@ -1,11 +1,15 @@
 window.XchangeWebGL = {
+    
     CopyToClipboard: function (text) {
-        navigator.clipboard.writeText(text).then(function () {
+
+        platform.clipboard(text).then(function()  {
             var backData = {MethodName: "CopyToClipboard", Code: "1", Data: "Seccess"};
             unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
-        }).catch(function (error) {
-            console.error('Failed to copy text: ', error);
-            var backData = {MethodName: "CopyToClipboard", Code: "0", Data: error};
+            
+        }).catch(function (){
+            alert("Fail");
+
+            var backData = {MethodName: "CopyToClipboard", Code: "0", Data: "Fail"};
             unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
         });
     },
@@ -24,18 +28,18 @@ window.XchangeWebGL = {
         inputField.style.top = y + '%';
         inputField.style.width = width + '%';
         inputField.value = data;
-        inputField.style.opacity = 1;
+        inputField.style.visibility = "visible";
+        inputField.style.display = ""
         inputField.focus();
-		console.log("on focus");
+        console.log("on fucos");
     },
 
     HideInputField: function () {
         var inputField = document.getElementById('unityInputField');
         unityInstanceRef.SendMessage('WebGLTextInput', 'OnInputChanged', inputField.value);
-        inputField.style.opacity = 0;
+        inputField.style.visibility = "hidden";
         inputField.blur();
-		
-		console.log("lose focus");
+        console.log("lose fucos");
     },
 
     SyncDB: function () {
