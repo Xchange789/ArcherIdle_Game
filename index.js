@@ -38,10 +38,10 @@ window.addEventListener("load", function () {
   var buildUrl = "Build";
   var loaderUrl = buildUrl + "/website.loader.js";
   var config = {
-    dataUrl: buildUrl + "/website.data.br",
-    frameworkUrl: buildUrl + "/website.framework.js.br",
-    codeUrl: buildUrl + "/website.wasm.br",
-    symbolsUrl: buildUrl + "/website.symbols.json.br",
+    dataUrl: buildUrl + "/website.data",
+    frameworkUrl: buildUrl + "/website.framework.js",
+    codeUrl: buildUrl + "/website.wasm",
+    symbolsUrl: buildUrl + "/website.symbols.json",
     streamingAssetsUrl: "StreamingAssets",
     companyName: "xchange",
     productName: "ArcherIdle",
