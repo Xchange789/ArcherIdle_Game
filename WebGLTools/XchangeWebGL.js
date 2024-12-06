@@ -26,6 +26,7 @@ window.XchangeWebGL = {
         inputField.value = data;
         inputField.style.opacity = 1;
         inputField.focus();
+		console.log("on focus");
     },
 
     HideInputField: function () {
@@ -33,6 +34,8 @@ window.XchangeWebGL = {
         unityInstanceRef.SendMessage('WebGLTextInput', 'OnInputChanged', inputField.value);
         inputField.style.opacity = 0;
         inputField.blur();
+		
+		console.log("lose focus");
     },
 
     SyncDB: function () {
