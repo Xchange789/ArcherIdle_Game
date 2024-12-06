@@ -31,7 +31,6 @@ window.XchangeWebGL = {
         inputField.style.visibility = "visible";
         inputField.style.display = ""
         inputField.focus();
-        console.log("on fucos");
     },
 
     HideInputField: function () {
@@ -39,7 +38,6 @@ window.XchangeWebGL = {
         unityInstanceRef.SendMessage('WebGLTextInput', 'OnInputChanged', inputField.value);
         inputField.style.visibility = "hidden";
         inputField.blur();
-        console.log("lose fucos");
     },
 
     SyncDB: function () {
