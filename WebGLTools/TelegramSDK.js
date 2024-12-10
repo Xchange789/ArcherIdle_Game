@@ -51,8 +51,7 @@ window.TelegramSDK = {
          */
         platform.openLink(url);
     },
-
-
+    
     OpenTelegramLink: function (url)
     {
         /*
@@ -80,6 +79,6 @@ window.TelegramSDK = {
     {
         platform.checkHomeScreenStatus(tgEventName);
     }
-    
-    
 }
+
+

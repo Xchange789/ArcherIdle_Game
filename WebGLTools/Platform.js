@@ -122,5 +122,4 @@
     }
 }
 
-
 var platform = new Platform();
