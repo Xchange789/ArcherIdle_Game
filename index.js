@@ -36,12 +36,12 @@ window.addEventListener("load", function () {
   }
 
   var buildUrl = "Build";
-  var loaderUrl = buildUrl + "/website.loader.js";
+  var loaderUrl = buildUrl + "/0.1.3.2.loader.js";
   var config = {
-    dataUrl: buildUrl + "/website.data",
-    frameworkUrl: buildUrl + "/website.framework.js",
-    codeUrl: buildUrl + "/website.wasm",
-    symbolsUrl: buildUrl + "/website.symbols.json",
+    dataUrl: buildUrl + "/0.1.3.2.data.br",
+    frameworkUrl: buildUrl + "/0.1.3.2.framework.js.br",
+    codeUrl: buildUrl + "/0.1.3.2.wasm.br",
+    symbolsUrl: buildUrl + "/0.1.3.2.symbols.json.br",
     streamingAssetsUrl: "StreamingAssets",
     companyName: "xchange",
     productName: "ArcherIdle",
@@ -64,7 +64,7 @@ window.addEventListener("load", function () {
     document.getElementsByTagName('head')[0].appendChild(meta);
   }
 
-  canvas.style.background = "url('" + buildUrl + "/website.jpg') center / cover";
+  canvas.style.background = "url('" + buildUrl + "/0.1.3.2.jpg') center / cover";
   loadingBar.style.display = "block";
 
   var script = document.createElement("script");

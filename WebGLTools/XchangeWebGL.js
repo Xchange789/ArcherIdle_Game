@@ -29,7 +29,6 @@ window.XchangeWebGL = {
         inputField.style.width = width + '%';
         inputField.value = data;
         inputField.style.visibility = "visible";
-        inputField.style.display = ""
         inputField.focus();
     },
 
