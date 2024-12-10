@@ -26,8 +26,7 @@ window.TelegramSDK = {
     },
 
     Init: function () {
-        window.telegramApps.sdk.init();
-        
+        //window.telegramApps.sdk.init();
         // var { retrieveLaunchParams } = window.telegramApps.sdk;
         var launchParams = platform.retrieveLaunchParams();
         var backData = {TypeName:"TelegranSDKCallback",MethodName: "Init", Code: "1", Data: JSON.stringify(launchParams)};
