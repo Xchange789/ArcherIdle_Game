@@ -87,19 +87,11 @@
         return  {
             botInline: true,
             initData:  {
-                authDate: this.m_telegram.WebApp.initDataUnsafe.auth_date,
-                chatInstance: this.m_telegram.WebApp.initDataUnsafe.chat_instance,
-                chatType: this.m_telegram.WebApp.initDataUnsafe.chat_type,
+                auth_date: this.m_telegram.WebApp.initDataUnsafe.auth_date,
+                chat_instance: this.m_telegram.WebApp.initDataUnsafe.chat_instance,
+                chat_type: this.m_telegram.WebApp.initDataUnsafe.chat_type,
                 hash: this.m_telegram.WebApp.initDataUnsafe.hash,
-                user:{
-                    allowsWriteToPm: this.m_telegram.WebApp.initDataUnsafe.user.allows_write_to_pm,
-                    firstName: this.m_telegram.WebApp.initDataUnsafe.user.first_name,
-                    id: this.m_telegram.WebApp.initDataUnsafe.user.id,
-                    languageCode: this.m_telegram.WebApp.initDataUnsafe.user.language_code,
-                    lastName: this.m_telegram.WebApp.initDataUnsafe.user.last_name,
-                    photoUrl: this.m_telegram.WebApp.initDataUnsafe.user.photo_url,
-                    username: this.m_telegram.WebApp.initDataUnsafe.user.username,
-                }
+                user: this.m_telegram.WebApp.initDataUnsafe.user
             },
             initDataRaw: this.m_telegram.WebApp.initData,
             platform: this.m_telegram.WebApp.platform,
