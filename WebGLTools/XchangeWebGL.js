@@ -50,7 +50,7 @@ function SendInputToUnity() {
     input.type      = "text";
     input.id        = "unityInputField";
     input.style     = "position:absolute; top:0; left:0; visibility: hidden; z-index:1000;";
-    input.oninput   = SendInputToUnity;
+    input.addEventListener("oninput", SendInputToUnity);
     document.body.appendChild(input);
 
     platform.init();
