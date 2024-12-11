@@ -20,9 +20,9 @@ window.TelegramSDK = {
             var eventJson = eventObject != undefined ? JSON.stringify(eventObject) : "";
             eventObject = { eventType, eventJson };
             unityInstanceRef.SendMessage("SDKCallbackMono", "TelegramEvents", JSON.stringify(eventObject));
-            window.Telegram.WebApp.offEvent(eventType, eventHandler);
+            window.Telegram.WebView.offEvent(eventType, eventHandler);
         }
-        window.Telegram.WebApp.onEvent(eventType, eventHandler); 
+        window.Telegram.WebView.onEvent(eventType, eventHandler); 
     },
     
     Init: function () {

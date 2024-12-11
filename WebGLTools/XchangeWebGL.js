@@ -61,6 +61,7 @@ function SendInputToUnity() {
 
     // Expand the application.
     //postEvent('web_app_expand');
+    platform.m_telegram.expand();
 
     document.body.classList.add('mobile-body');
     document.getElementById('wrap').classList.add('mobile-wrap');
