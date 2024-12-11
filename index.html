@@ -19,7 +19,7 @@
       </div>
       <div id="unity-warning"> </div>
     </div>
-    <input type="text" id="unityInputField" style="position:absolute; top:0; left:0; visibility: hidden; z-index:1000;" />
+    <input type="text" id="unityInputField" style="position:absolute; top:0; left:0; visibility: hidden; z-index:1000;" oninput="SendInputToUnity()"/>
     <script src="index.js"></script>
     
     <!--js放这下面-->
@@ -27,5 +27,13 @@
     <script src="./WebGLTools/Platform.js"></script>
     <script src="./WebGLTools/TelegramSDK.js"></script>
     <script src="./WebGLTools/XchangeWebGL.js"></script>
+    <script>
+      function SendInputToUnity() {
+        var inputField = document.getElementById('unityInputField');
+        var inputValue = inputField.value;
+        // 将输入的内容发送到Unity中
+        unityInstanceRef.SendMessage('WebGLTextInput', 'OnInputChanged', inputValue);
+      }
+    </script>
   </body>
 </html>
