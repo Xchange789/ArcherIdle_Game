@@ -39,7 +39,10 @@ window.XchangeWebGL = {
 }
 
 function SendInputToUnity() {
-
+    var inputField = document.getElementById('unityInputField');
+    var inputValue = inputField.value;
+    // 将输入的内容发送到Unity中
+    unityInstanceRef.SendMessage('WebGLTextInput', 'OnInputChanged', inputValue);
 }
 
 (function (){
@@ -47,12 +50,7 @@ function SendInputToUnity() {
     input.type      = "text";
     input.id        = "unityInputField";
     input.style     = "position:absolute; top:0; left:0; visibility: hidden; z-index:1000;";
-    input.oninput   = function (){
-        var inputField = document.getElementById('unityInputField');
-        var inputValue = inputField.value;
-        // 将输入的内容发送到Unity中
-        unityInstanceRef.SendMessage('WebGLTextInput', 'OnInputChanged', inputValue);
-    };
+    input.oninput   = "SendInputToUnity()";
     
     document.body.appendChild(input);
 
