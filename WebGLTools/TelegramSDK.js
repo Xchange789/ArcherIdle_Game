@@ -33,9 +33,9 @@ window.TelegramSDK = {
 
     DoPostEvent: function (eventType, eventData, tgEventName)
     {
-        // var jsonData= JSON.parse(eventData);
-        // TelegramSDK.RegisterEventToWebApp(tgEventName);
-        // platform.postEvent(tgEventName, jsonData);
+        var jsonData= JSON.parse(eventData);
+        TelegramSDK.RegisterEventToWebApp(tgEventName);
+        platform.postEvent(tgEventName, jsonData);
         
     },
 
@@ -46,11 +46,11 @@ window.TelegramSDK = {
         platform.openInvoice("https://t.me/$"+jsonData.slug);
     },
 
-    DoShare : function (url, text)
+    DoShare : function (u, t)
     {
         platform.openTelegramLink("/url?" + new URLSearchParams({
-            url: t,
-            text: e || ""
+            url: url,
+            text: t || ""
         }).toString().replace(/\+/g, "%20"));
         var backData = {TypeName:"TelegranSDKCallback",MethodName: "DoShareURL", Code: "1", Data: "OK"};
         unityInstanceRef.SendMessage("SDKCallbackMono", "CallbackToUnity", JSON.stringify(backData));
