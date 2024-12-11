@@ -50,11 +50,8 @@ function SendInputToUnity() {
     input.type      = "text";
     input.id        = "unityInputField";
     input.style     = "position:absolute; top:0; left:0; visibility: hidden; z-index:1000;";
+    input.oninput   = "SendInputToUnity()";
     document.body.appendChild(input);
-    
-    document.addEventListener("DOMContentLoaded", function(){
-        document.getElementById('unityInputField').addEventListener("oninput", SendInputToUnity);
-    });
 
     platform.init();
     // Some versions of Telegram don't need the classes above.
