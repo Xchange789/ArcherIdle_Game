@@ -38,15 +38,16 @@ window.XchangeWebGL = {
     },
 }
 
+function SendInputToUnity() {
+    var inputField = document.getElementById('unityInputField');
+    var inputValue = inputField.value;
+    // 将输入的内容发送到Unity中
+    unityInstanceRef.SendMessage('WebGLTextInput', 'OnInputChanged', inputValue);
+}
 
 (function(){
     let input       = document.getElementById("unityInputField");
-    input.oninput   = function (){    
-        var inputField = document.getElementById('unityInputField');
-        var inputValue = inputField.value;
-        // 将输入的内容发送到Unity中
-        unityInstanceRef.SendMessage('WebGLTextInput', 'OnInputChanged', inputValue);
-    };
+    input.oninput   = SendInputToUnity;
 
     platform.init();
     // Some versions of Telegram don't need the classes above.
