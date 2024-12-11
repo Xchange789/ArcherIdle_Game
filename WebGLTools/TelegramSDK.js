@@ -24,49 +24,46 @@ window.TelegramSDK = {
         }
         window.Telegram.WebApp.onEvent(eventType, eventHandler); 
     },
-
+    
     Init: function () {
-        //window.telegramApps.sdk.init();
-        // var { retrieveLaunchParams } = window.telegramApps.sdk;
         var launchParams = platform.retrieveLaunchParams();
         var backData = {TypeName:"TelegranSDKCallback",MethodName: "Init", Code: "1", Data: JSON.stringify(launchParams)};
         unityInstanceRef.SendMessage("SDKCallbackMono", "CallbackToUnity", JSON.stringify(backData));
     },
 
+    DoPostEvent: function (eventType, eventData, tgEventName)
+    {
+        // var jsonData= JSON.parse(eventData);
+        // TelegramSDK.RegisterEventToWebApp(tgEventName);
+        // platform.postEvent(tgEventName, jsonData);
+        
+    },
+
+    DoOpenInvoice: function (eventData, tgEventName)
+    {
+        var jsonData= JSON.parse(eventData);
+        TelegramSDK.RegisterEventToWebApp(tgEventName);
+        platform.openInvoice("https://t.me/$"+jsonData.slug);
+    },
+
     DoShare : function (url, text)
     {
-        /*
-        var { shareURL } = window.telegramApps.sdk;
-        shareURL(url, text);
+        platform.openTelegramLink("/url?" + new URLSearchParams({
+            url: t,
+            text: e || ""
+        }).toString().replace(/\+/g, "%20"));
         var backData = {TypeName:"TelegranSDKCallback",MethodName: "DoShareURL", Code: "1", Data: "OK"};
-        unityInstanceRef.SendMessage("SDKCallbackMono", "CallbackToUnity", JSON.stringify(backData));        
-         */
+        unityInstanceRef.SendMessage("SDKCallbackMono", "CallbackToUnity", JSON.stringify(backData));
     },
 
     OpenLink: function (url)
     {
-        /*
-        var { openLink } = window.telegramApps.sdk;
-        openLink(url);        
-         */
         platform.openLink(url);
     },
     
     OpenTelegramLink: function (url)
     {
-        /*
-        var  { postEvent } = window.telegramApps.sdk;
-        postEvent('web_app_open_tg_link', { path_full: url });        
-         */
         platform.openTelegramLink(url);
-    },
-
-    DoPostEvent: function (eventType, eventData, tgEventName)
-    {
-        var jsonData= JSON.parse(eventData);
-        platform.openInvoice("https://t.me/$"+jsonData.slug);
-        //window.Telegram.WebApp.openInvoice("https://t.me/$"+jsonData.slug);
-        TelegramSDK.RegisterEvent(tgEventName);
     },
 
     addToHomeScreen: function (tgEventName)

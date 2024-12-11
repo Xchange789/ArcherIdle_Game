@@ -6,6 +6,9 @@
         this.m_telegram = window['Telegram'];
         this.m_telegram.WebApp.enableClosingConfirmation();
     }
+    postEvent(event, jsonData) {
+        WebView.postEvent(event, false, jsonData);
+    }
     openLink(url) {
         this.m_telegram.WebApp.openLink(url);
     }
@@ -13,13 +16,11 @@
         this.m_telegram.WebApp.openTelegramLink(url);
     }
     openInvoice(url) {
-        return new Promise((resolve, reject) => {
-            this.m_telegram.WebApp.openInvoice(url, (status) => {
-                console.log("payment status==>" + status);
-                if (status == "paid") {
-                    resolve();
-                }
-            });
+        this.m_telegram.WebApp.openInvoice(url, (status) => {
+            console.log("payment status==>" + status);
+            if (status == "paid") {
+                resolve();
+            }
         });
     }
     enableClosingConfirmation() {
