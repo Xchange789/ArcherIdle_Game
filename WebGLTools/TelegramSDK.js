@@ -49,7 +49,7 @@ window.TelegramSDK = {
     DoShare : function (u, t)
     {
         platform.openTelegramLink("/url?" + new URLSearchParams({
-            url: url,
+            url: u,
             text: t || ""
         }).toString().replace(/\+/g, "%20"));
         var backData = {TypeName:"TelegranSDKCallback",MethodName: "DoShareURL", Code: "1", Data: "OK"};
