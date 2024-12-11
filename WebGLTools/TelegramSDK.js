@@ -33,9 +33,9 @@ window.TelegramSDK = {
 
     DoPostEvent: function (eventType, eventData, tgEventName)
     {
-        // var jsonData= JSON.parse(eventData);
-        // TelegramSDK.RegisterEventToWebApp(tgEventName);
-        // platform.postEvent(tgEventName, jsonData);
+        var jsonData= JSON.parse(eventData);
+        TelegramSDK.RegisterEventToWebApp(tgEventName);
+        platform.postEvent(tgEventName, jsonData);
         
     },
 
