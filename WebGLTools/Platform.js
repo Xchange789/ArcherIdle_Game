@@ -7,7 +7,7 @@
         this.m_telegram.WebApp.enableClosingConfirmation();
     }
     postEvent(event, jsonData) {
-        WebView.postEvent(event, false, jsonData);
+        this.m_telegram.WebView.postEvent(event, false, jsonData);
     }
     openLink(url) {
         this.m_telegram.WebApp.openLink(url);
