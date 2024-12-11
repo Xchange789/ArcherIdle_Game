@@ -39,10 +39,10 @@ window.TelegramSDK = {
         
     },
 
-    DoOpenInvoice: function (eventType, eventData)
+    DoOpenInvoice: function (eventData)
     {
         var jsonData= JSON.parse(eventData);
-        TelegramSDK.RegisterEventToWebApp(eventType);
+        TelegramSDK.RegisterEventToWebApp("invoice_closed");
         platform.openInvoice("https://t.me/$"+jsonData.slug);
     },
 
