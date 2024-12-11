@@ -16,12 +16,7 @@
         this.m_telegram.WebApp.openTelegramLink(url);
     }
     openInvoice(url) {
-        this.m_telegram.WebApp.openInvoice(url, (status) => {
-            console.log("payment status==>" + status);
-            if (status == "paid") {
-                resolve();
-            }
-        });
+        this.m_telegram.WebApp.openInvoice(url);
     }
     enableClosingConfirmation() {
         this.m_telegram.WebApp.enableClosingConfirmation();

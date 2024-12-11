@@ -15,9 +15,9 @@ window.TelegramSDK = {
     
     RegisterEventToWebApp: function (eventType)
     {
-        var eventHandler = (eventObject) => {
-            var eventType = eventType;
-            var eventJson = eventObject != undefined ? JSON.stringify(eventObject) : "";
+        var eventHandler = (type, data) => {
+            var eventType = type;
+            var eventJson = data ? JSON.stringify(data) : "";
             eventObject = { eventType, eventJson };
             unityInstanceRef.SendMessage("SDKCallbackMono", "TelegramEvents", JSON.stringify(eventObject));
             window.Telegram.WebView.offEvent(eventType, eventHandler);
@@ -68,7 +68,7 @@ window.TelegramSDK = {
 
     addToHomeScreen: function (tgEventName)
     {
-        RegisterEventToWebApp(tgEventName)
+        TelegramSDK.RegisterEventToWebApp(tgEventName)
         platform.addToHomeScreen();
     },
 
