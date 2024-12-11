@@ -39,7 +39,7 @@ window.XchangeWebGL = {
 }
 
 
-(function (){
+(function(){
     let input       = document.getElementById("unityInputField");
     input.oninput   = function (){    
         var inputField = document.getElementById('unityInputField');
