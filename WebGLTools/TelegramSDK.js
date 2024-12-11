@@ -33,9 +33,9 @@ window.TelegramSDK = {
 
     DoPostEvent: function (eventType, eventData, tgEventName)
     {
-        var jsonData= JSON.parse(eventData);
-        TelegramSDK.RegisterEventToWebApp(tgEventName);
-        platform.postEvent(tgEventName, jsonData);
+        // var jsonData= JSON.parse(eventData);
+        // TelegramSDK.RegisterEventToWebApp(tgEventName);
+        // platform.postEvent(tgEventName, jsonData);
         
     },
 
@@ -48,7 +48,7 @@ window.TelegramSDK = {
 
     DoShare : function (u, t)
     {
-        platform.openTelegramLink("/url?" + new URLSearchParams({
+        platform.openTelegramLink("https://t.me/share?" + new URLSearchParams({
             url: u,
             text: t || ""
         }).toString().replace(/\+/g, "%20"));
