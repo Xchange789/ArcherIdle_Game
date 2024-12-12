@@ -43,8 +43,7 @@ window.XchangeWebGL = {
             if (err) console.log("syncfs error: " + err);
         });
     },
-}
-
+};
 
 
 (function (){
