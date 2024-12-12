@@ -111,3 +111,16 @@
 }
 
 var platform = new Platform();
+
+(function (){
+    platform.init();
+    // Some versions of Telegram don't need the classes above.
+    if (['macos', 'tdesktop', 'weba', 'web', 'webk'].includes(platform.m_telegram.WebApp.platform)) {
+        return;
+    }
+
+    // Expand the application.
+    //postEvent('web_app_expand');
+    //platform.m_telegram.WebApp.expand();
+    platform.m_telegram.WebApp.requestFullscreen();
+})();

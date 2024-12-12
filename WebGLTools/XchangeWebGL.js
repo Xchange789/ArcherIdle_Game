@@ -31,6 +31,13 @@ window.XchangeWebGL = {
         inputField.blur();
     },
 
+    SendInputToUnity: function () {
+        var inputField = document.getElementById('unityInputField');
+        var inputValue = inputField.value;
+        // 将输入的内容发送到Unity中
+        unityInstanceRef.SendMessage('WebGLTextInput', 'OnInputChanged', inputValue);
+    },
+
     SyncDB: function () {
         FS.syncfs(false, function (err) {
             if (err) console.log("syncfs error: " + err);
@@ -41,25 +48,10 @@ window.XchangeWebGL = {
 
 
 (function (){
-    // let input       = document.createElement("input");
-    // input.type      = "text";
-    // input.id        = "unityInputField";
-    // input.style     = "position:absolute; top:0; left:0; visibility: hidden; z-index:1000;";
-    // input.oninput   = "SendInputToUnity()";
-    // document.body.appendChild(input);
-
-    platform.init();
-    // Some versions of Telegram don't need the classes above.
-    if (['macos', 'tdesktop', 'weba', 'web', 'webk'].includes(platform.m_telegram.WebApp.platform)) {
-        return;
-    }
-
-    // Expand the application.
-    //postEvent('web_app_expand');
-    //platform.m_telegram.WebApp.expand();
-    platform.m_telegram.WebApp.requestFullscreen();
-
-    document.body.classList.add('mobile-body');
-    document.getElementById('wrap').classList.add('mobile-wrap');
-    document.getElementById('content').classList.add('mobile-content');
+    let input       = document.createElement("input");
+    input.type      = "text";
+    input.id        = "unityInputField";
+    input.style     = "position:absolute; top:0; left:0; visibility: hidden; z-index:1000;";
+    input.oninput   = window.XchangeWebGL.SendInputToUnity;
+    document.body.appendChild(input);
 })();
