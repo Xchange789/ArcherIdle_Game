@@ -62,9 +62,11 @@ window.TelegramSDK = {
         platform.openLink(url);
     },
     
-    OpenTelegramLink: function (url)
+    OpenTelegramLink: function (u)
     {
-        platform.openTelegramLink(url);
+        platform.openTelegramLink("https://t.me" + + new URLSearchParams({
+            url: u
+        }).toString().replace(/\+/g, "%20"));
     },
 
     addToHomeScreen: function (tgEventName)
