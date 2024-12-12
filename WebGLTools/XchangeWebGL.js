@@ -46,11 +46,12 @@ window.XchangeWebGL = {
 };
 
 
-(function (){
-    let input       = document.createElement("input");
-    input.type      = "text";
-    input.id        = "unityInputField";
-    input.style     = "position:absolute; top:0; left:0; visibility: hidden; z-index:1000;";
-    input.oninput   = window.XchangeWebGL.SendInputToUnity;
-    document.body.appendChild(input);
-})();
+
+// (function (){
+//     let input       = document.createElement("input");
+//     input.type      = "text";
+//     input.id        = "unityInputField";
+//     input.style     = "position:absolute; top:0; left:0; visibility: hidden; z-index:1000;";
+//     input.oninput   = window.XchangeWebGL.SendInputToUnity;
+//     document.body.appendChild(input);
+// })();
