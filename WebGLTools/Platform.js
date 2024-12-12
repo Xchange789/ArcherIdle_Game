@@ -105,6 +105,7 @@
             var eventType= tgEventName;
             var eventJson= JSON.stringify({"status": status});
             var eventData = { eventType, eventJson };
+            alert(eventData);
             unityInstanceRef.SendMessage("SDKCallbackMono", "TelegramEvents", JSON.stringify(eventData));
         });
     }
