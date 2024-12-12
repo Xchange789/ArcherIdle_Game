@@ -19,7 +19,6 @@ window.TelegramSDK = {
             var eventType = type;
             var eventJson = data ? JSON.stringify(data) : "";
             eventObject = { eventType, eventJson };
-            alert(eventObject);
             unityInstanceRef.SendMessage("SDKCallbackMono", "TelegramEvents", JSON.stringify(eventObject));
             window.Telegram.WebView.offEvent(eventType, eventHandler);
         }

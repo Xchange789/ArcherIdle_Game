@@ -101,12 +101,10 @@
     }
     checkHomeScreenStatus(tgEventName)
     {
-        alert(tgEventName);
         this.m_telegram.WebApp.checkHomeScreenStatus((status) => {
             var eventType= tgEventName;
             var eventJson= JSON.stringify({"status": status});
             var eventData = { eventType, eventJson };
-            alert(eventJson);
             unityInstanceRef.SendMessage("SDKCallbackMono", "TelegramEvents", JSON.stringify(eventData));
         });
     }
