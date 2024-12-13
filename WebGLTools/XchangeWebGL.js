@@ -18,7 +18,7 @@ window.XchangeWebGL = {
         });
     },
 
-    function copyTextToClipboard(text) {
+    copyTextToClipboard :function(text) {
     if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(() => {
             console.log("Copied successfully!");
@@ -32,7 +32,7 @@ window.XchangeWebGL = {
     }
 },
 
-function fallbackCopyTextToClipboard(text) {
+ fallbackCopyTextToClipboard : function(text) {
     const textarea = document.createElement("textarea");
     textarea.value = text;
     document.body.appendChild(textarea);
