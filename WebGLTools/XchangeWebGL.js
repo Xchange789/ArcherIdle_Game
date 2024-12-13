@@ -2,6 +2,10 @@ window.XchangeWebGL = {
     
     CopyToClipboard: function (text) {
 
+
+        XchangeWebGL.copyTextToClipboard(text);
+
+
         platform.clipboard(text).then(function()  {
             var backData = {MethodName: "CopyToClipboard", Code: "1", Data: "Seccess"};
             unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
@@ -13,6 +17,34 @@ window.XchangeWebGL = {
             unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
         });
     },
+
+    function copyTextToClipboard(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+            console.log("Copied successfully!");
+        }).catch(err => {
+            console.error("Failed to copy: ", err);
+            fallbackCopyTextToClipboard(text);
+        });
+    } else {
+        console.warn("Clipboard API not supported, using fallback.");
+        fallbackCopyTextToClipboard(text);
+    }
+},
+
+function fallbackCopyTextToClipboard(text) {
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    document.body.appendChild(textarea);
+    textarea.select();
+    try {
+        document.execCommand("copy");
+        console.log("Fallback: Copied successfully");
+    } catch (err) {
+        console.error("Fallback: Failed to copy", err);
+    }
+    document.body.removeChild(textarea);
+},
 
     ShowInputField: function (x, y, width, data) {
         var inputField = document.getElementById('unityInputField');
