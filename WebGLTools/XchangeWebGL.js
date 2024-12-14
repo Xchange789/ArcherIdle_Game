@@ -45,7 +45,7 @@ window.XchangeWebGL = {
     },
     //创建按钮
     CreateVirtualBtn: function (id, width, height, x, y) {
-        var btn = document.createElement("button");
+        var button = document.createElement("button");
         btn.innerHTML = "Virtual Button";
         btn.id = id;
         button.style.width = width + "px";
@@ -54,13 +54,13 @@ window.XchangeWebGL = {
         button.style.left = x + "px";
         button.style.top = y + "px";
 
-        btn.onclick = function () {
+        button.onclick = function () {
             var backData = {MethodName: "ClickVirtualBtn", Code: "1", Data: id};
             unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
         };
 
         // 将按钮添加到页面中
-        document.body.appendChild(btn);
+        document.body.appendChild(button);
     },
     //销毁按钮
     DestroyButton: function (id) {
