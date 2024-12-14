@@ -45,8 +45,8 @@ window.XchangeWebGL = {
         var msg = info["msg"];
         var func = function () {
         };
-        string
-        eventName = "";
+        
+        var eventName = "";
         if (id == 1) {
             eventName = "CopyToClipboard";
             func = function () {
