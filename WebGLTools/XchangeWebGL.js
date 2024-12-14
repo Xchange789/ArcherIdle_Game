@@ -44,13 +44,13 @@ window.XchangeWebGL = {
         button.onclick = function () {
 
 
-            // if(id==1)
-            // {
-            //     XchangeWebGL.CopyToClipboard(info["msg"]);
-            // }
+            if(id==1)
+            {
+                XchangeWebGL.CopyToClipboard(info["msg"]);
+            }
 
-            var backData = {MethodName: "ClickVirtualBtn", Code: "1", Data: id};
-            unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
+            // var backData = {MethodName: "ClickVirtualBtn", Code: "1", Data: id};
+            // unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
         };
 
         // 将按钮添加到页面中
