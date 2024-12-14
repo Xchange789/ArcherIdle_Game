@@ -43,15 +43,15 @@ window.XchangeWebGL = {
         var info = JSON.parse(data);
         var id = info["id"];
         var msg = info["msg"];
-        var func = function () {
-        };
-        
         var eventName = "";
         if (id == 1) {
             eventName = "CopyToClipboard";
-            func = XchangeWebGL.CopyToClipboard(msg);
         }
-        button.onclick =  func();
+        button.onclick = function () {
+            if (id == 1) {
+                XchangeWebGL.CopyToClipboard(msg);
+            }
+        };
         // 将按钮添加到页面中
         document.body.appendChild(button);
 
