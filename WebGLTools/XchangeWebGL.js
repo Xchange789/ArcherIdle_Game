@@ -2,16 +2,25 @@ window.XchangeWebGL = {
 
     CopyToClipboard: function (text) {
 
-        platform.clipboard(text).then(function () {
+        navigator.clipboard.writeText(text).then(function () {
             var backData = {MethodName: "CopyToClipboard", Code: "1", Data: "Seccess"};
             unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
-
-        }).catch(function () {
-            alert("Fail");
-
-            var backData = {MethodName: "CopyToClipboard", Code: "0", Data: "Fail"};
+        }).catch(function (error) {
+            console.error('Failed to copy text: ', error);
+            var backData = {MethodName: "CopyToClipboard", Code: "0", Data: error};
             unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
         });
+
+        // platform.clipboard(text).then(function () {
+        //     var backData = {MethodName: "CopyToClipboard", Code: "1", Data: "Seccess"};
+        //     unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
+
+        // }).catch(function () {
+        //     alert("Fail");
+
+        //     var backData = {MethodName: "CopyToClipboard", Code: "0", Data: "Fail"};
+        //     unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
+        // });
     },
 
     ShowInputField: function (x, y, width, data) {
@@ -45,22 +54,22 @@ window.XchangeWebGL = {
     },
     //创建按钮
     CreateVirtualBtn: function (id, width, height, x, y) {
-        var button = document.createElement("button");
-        button.innerHTML = "Virtual Button";
-        button.id = id;
+        var btn = document.createElement("button");
+        btn.innerHTML = "Virtual Button";
+        btn.id = id;
         button.style.width = width + "px";
         button.style.height = height + "px";
         button.style.position = "absolute";
         button.style.left = x + "px";
         button.style.top = y + "px";
 
-        button.onclick = function () {
+        btn.onclick = function () {
             var backData = {MethodName: "ClickVirtualBtn", Code: "1", Data: id};
             unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
         };
 
         // 将按钮添加到页面中
-        document.body.appendChild(button);
+        document.body.appendChild(btn);
     },
     //销毁按钮
     DestroyButton: function (id) {
