@@ -30,6 +30,8 @@ window.XchangeWebGL = {
     },
     //创建按钮
     CreateVirtualBtn: function (data, width, height, x, y) {
+        var info = JSON.parse(data);
+        var id = info["id"];
         var button = document.createElement("button");
         button.innerHTML = "Virtual Button";
         button.id = id;
@@ -41,8 +43,7 @@ window.XchangeWebGL = {
 
         button.onclick = function () {
 
-            var info = JSON.parse(data);
-            var id = info["id"];
+
             // if(id==1)
             // {
             //     XchangeWebGL.CopyToClipboard(info["msg"]);
