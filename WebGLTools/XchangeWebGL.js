@@ -1,28 +1,4 @@
 window.XchangeWebGL = {
-
-    CopyToClipboard: function (text) {
-
-        navigator.clipboard.writeText(text).then(function () {
-            var backData = {MethodName: "CopyToClipboard", Code: "1", Data: "Seccess"};
-            unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
-        }).catch(function (error) {
-            console.error('Failed to copy text: ', error);
-            var backData = {MethodName: "CopyToClipboard", Code: "0", Data: error};
-            unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
-        });
-
-        // platform.clipboard(text).then(function () {
-        //     var backData = {MethodName: "CopyToClipboard", Code: "1", Data: "Seccess"};
-        //     unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
-
-        // }).catch(function () {
-        //     alert("Fail");
-
-        //     var backData = {MethodName: "CopyToClipboard", Code: "0", Data: "Fail"};
-        //     unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
-        // });
-    },
-
     ShowInputField: function (x, y, width, data) {
         var inputField = document.getElementById('unityInputField');
         inputField.style.left = x + '%';
@@ -53,7 +29,7 @@ window.XchangeWebGL = {
         });
     },
     //创建按钮
-    CreateVirtualBtn: function (id, width, height, x, y) {
+    CreateVirtualBtn: function (data, width, height, x, y) {
         var button = document.createElement("button");
         button.innerHTML = "Virtual Button";
         button.id = id;
@@ -64,6 +40,14 @@ window.XchangeWebGL = {
         button.style.top = y + "px";
 
         button.onclick = function () {
+
+            var info = JSON.parse(data);
+            var id = info["id"];
+            // if(id==1)
+            // {
+            //     XchangeWebGL.CopyToClipboard(info["msg"]);
+            // }
+
             var backData = {MethodName: "ClickVirtualBtn", Code: "1", Data: id};
             unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
         };
@@ -79,6 +63,17 @@ window.XchangeWebGL = {
         }
         var backData = {MethodName: "DestroyButton", Code: "1", Data: button == null};
         unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
+    },
+
+    CopyToClipboard: function (text) {
+        navigator.clipboard.writeText(text).then(function () {
+            var backData = {MethodName: "CopyToClipboard", Code: "1", Data: "Seccess"};
+            unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
+        }).catch(function (error) {
+            console.error('Failed to copy text: ', error);
+            var backData = {MethodName: "CopyToClipboard", Code: "0", Data: error};
+            unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
+        });
     },
 };
 
