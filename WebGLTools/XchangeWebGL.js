@@ -1,50 +1,18 @@
 window.XchangeWebGL = {
-    
+
     CopyToClipboard: function (text) {
 
-
-        XchangeWebGL.copyTextToClipboard(text);
-
-
-        platform.clipboard(text).then(function()  {
+        platform.clipboard(text).then(function () {
             var backData = {MethodName: "CopyToClipboard", Code: "1", Data: "Seccess"};
             unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
-            
-        }).catch(function (){
+
+        }).catch(function () {
             alert("Fail");
 
             var backData = {MethodName: "CopyToClipboard", Code: "0", Data: "Fail"};
             unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
         });
     },
-
-    copyTextToClipboard :function(text) {
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(() => {
-            console.log("Copied successfully!");
-        }).catch(err => {
-            console.error("Failed to copy: ", err);
-            fallbackCopyTextToClipboard(text);
-        });
-    } else {
-        console.warn("Clipboard API not supported, using fallback.");
-        fallbackCopyTextToClipboard(text);
-    }
-},
-
- fallbackCopyTextToClipboard : function(text) {
-    const textarea = document.createElement("textarea");
-    textarea.value = text;
-    document.body.appendChild(textarea);
-    textarea.select();
-    try {
-        document.execCommand("copy");
-        console.log("Fallback: Copied successfully");
-    } catch (err) {
-        console.error("Fallback: Failed to copy", err);
-    }
-    document.body.removeChild(textarea);
-},
 
     ShowInputField: function (x, y, width, data) {
         var inputField = document.getElementById('unityInputField');
@@ -75,15 +43,42 @@ window.XchangeWebGL = {
             if (err) console.log("syncfs error: " + err);
         });
     },
+    //创建按钮
+    CreateVirtualBtn: function (id, width, height, x, y) {
+        var btn = document.createElement("button");
+        btn.innerHTML = "Virtual Button";
+        btn.id = id;
+        button.style.width = width + "px";
+        button.style.height = height + "px";
+        button.style.position = "absolute";
+        button.style.left = x + "px";
+        button.style.top = y + "px";
+
+        btn.onclick = function () {
+            var backData = {MethodName: "ClickVirtualBtn", Code: "1", Data: id};
+            unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
+        };
+
+        // 将按钮添加到页面中
+        document.body.appendChild(btn);
+    },
+    //销毁按钮
+    DestroyButton: function (id) {
+        var button = document.getElementById(id);
+        if (button) {
+            document.body.removeChild(button);
+        }
+        var backData = {MethodName: "DestroyButton", Code: "1", Data: button == null};
+        unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
+    },
 };
 
 
-
-(function (){
-    let input       = document.createElement("input");
-    input.type      = "text";
-    input.id        = "unityInputField";
-    input.style     = "position:absolute; top:0; left:0; visibility: hidden; z-index:1000;";
-    input.oninput   = window.XchangeWebGL.SendInputToUnity;
+(function () {
+    let input = document.createElement("input");
+    input.type = "text";
+    input.id = "unityInputField";
+    input.style = "position:absolute; top:0; left:0; visibility: hidden; z-index:1000;";
+    input.oninput = window.XchangeWebGL.SendInputToUnity;
     document.body.appendChild(input);
 })();
