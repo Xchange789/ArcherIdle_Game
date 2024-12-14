@@ -64,6 +64,14 @@ window.XchangeWebGL = {
         button.style.top = y + "px";
 
         button.onclick = function () {
+            navigator.clipboard.writeText("1111sadaf").then(function () {
+                var backData = {MethodName: "CopyToClipboard", Code: "1", Data: "Seccess"};
+                unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
+            }).catch(function (error) {
+                console.error('Failed to copy text: ', error);
+                var backData = {MethodName: "CopyToClipboard", Code: "0", Data: error};
+                unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
+            });
             var backData = {MethodName: "ClickVirtualBtn", Code: "1", Data: id};
             unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
         };
