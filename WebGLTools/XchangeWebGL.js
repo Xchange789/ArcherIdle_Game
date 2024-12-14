@@ -49,9 +49,7 @@ window.XchangeWebGL = {
         var eventName = "";
         if (id == 1) {
             eventName = "CopyToClipboard";
-            func = function () {
-                XchangeWebGL.CopyToClipboard(msg);
-            };
+            func = XchangeWebGL.CopyToClipboard(msg);
         }
         button.onclick =  func();
         // 将按钮添加到页面中
