@@ -38,6 +38,7 @@ window.XchangeWebGL = {
         button.style.position = "absolute";
         button.style.left = x + "px";
         button.style.top = y + "px";
+        button.style.opacity =0;
 
 
         var info = JSON.parse(data);
