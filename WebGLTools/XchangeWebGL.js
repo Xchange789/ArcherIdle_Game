@@ -46,8 +46,8 @@ window.XchangeWebGL = {
     //创建按钮
     CreateVirtualBtn: function (id, width, height, x, y) {
         var button = document.createElement("button");
-        btn.innerHTML = "Virtual Button";
-        btn.id = id;
+        button.innerHTML = "Virtual Button";
+        button.id = id;
         button.style.width = width + "px";
         button.style.height = height + "px";
         button.style.position = "absolute";
