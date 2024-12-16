@@ -122,6 +122,6 @@ var platform = new Platform();
 
     // Expand the application.
     //postEvent('web_app_expand');
-    //platform.m_telegram.WebApp.expand();
-    platform.m_telegram.WebApp.requestFullscreen();
+    platform.m_telegram.WebApp.expand();
+    //platform.m_telegram.WebApp.requestFullscreen();
 })();
