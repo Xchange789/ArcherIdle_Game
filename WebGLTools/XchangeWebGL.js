@@ -28,10 +28,15 @@ window.XchangeWebGL = {
             if (err) console.log("syncfs error: " + err);
         });
     },
+
+    Alert: function (msg) {
+        window.alert(msg);
+    },
+
     //创建按钮
     CreateVirtualBtn: function (data, width, height, x, y) {
         // alert("CreateVirtualBtn");
-		var info = JSON.parse(data);
+        var info = JSON.parse(data);
         var id = info["id"];
         var msg = info["msg"];
         var eventName = "";
@@ -44,25 +49,25 @@ window.XchangeWebGL = {
         button.style.left = x + "px";
         button.style.top = y + "px";
         // button.style.opacity =0;
- 
-		alert("宽:"+button.style.width + "  高:"+button.style.height + " X:"+button.style.left + "  Y"+ button.style.top+"画布大小" + window.innerWidth  +":"+ window.innerHeight);
- 
+
+        alert("宽:"+button.style.width + "  高:"+button.style.height + " X:"+button.style.left + "  Y"+ button.style.top+"画布大小" + window.innerWidth  +":"+ window.innerHeight);
+
         if (id == 1) {
             eventName = "CopyToClipboard";
         }
         button.onclick = function () {
-			alert("Button Click!");
+            alert("Button Click!");
             if (id == 1) {
                 XchangeWebGL.CopyToClipboard(msg);
             }
-			alert(id);
+            alert(id);
         };
         // 将按钮添加到页面中
         document.body.appendChild(button);
 
         var backData = {MethodName: "CreateVirtualBtn", Code: "1", Data: eventName};
         unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
-		// alert("CreateVirtualBtn End");
+        // alert("CreateVirtualBtn End");
     },
     //销毁按钮
     DestroyButton: function (id) {
@@ -75,19 +80,6 @@ window.XchangeWebGL = {
     },
 
     CopyToClipboard: function (text) {
-		alert("CopyToClipboard"); 
-		platform.clipboard(text).then(function (){
-            var backData = {MethodName: "CopyToClipboard", Code: "1", Data: "Seccess"};
-            unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
-            alert("Success");            
-        }).catch(function (){
-            var backData = {MethodName: "CopyToClipboard", Code: "0", Data: error};
-            unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
-            alert("Fail");            
-        })
-        
-        return;
-		
         navigator.clipboard.writeText(text).then(function () {
             var backData = {MethodName: "CopyToClipboard", Code: "1", Data: "Seccess"};
             unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
