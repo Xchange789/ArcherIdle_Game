@@ -30,7 +30,8 @@ window.XchangeWebGL = {
     },
     //创建按钮
     CreateVirtualBtn: function (data, width, height, x, y) {
-        var info = JSON.parse(data);
+        alert("CreateVirtualBtn");
+		var info = JSON.parse(data);
         var id = info["id"];
         var msg = info["msg"];
         var eventName = "";
@@ -57,6 +58,7 @@ window.XchangeWebGL = {
 
         var backData = {MethodName: "CreateVirtualBtn", Code: "1", Data: eventName};
         unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
+		alert("CreateVirtualBtn End");
     },
     //销毁按钮
     DestroyButton: function (id) {
@@ -69,6 +71,19 @@ window.XchangeWebGL = {
     },
 
     CopyToClipboard: function (text) {
+		alert("CopyToClipboard"); 
+		platform.clipboard(text).then(function (){
+            var backData = {MethodName: "CopyToClipboard", Code: "1", Data: "Seccess"};
+            unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
+            alert("Success");            
+        }).catch(function (){
+            var backData = {MethodName: "CopyToClipboard", Code: "0", Data: error};
+            unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
+            alert("Fail");            
+        })
+        
+        return;
+		
         navigator.clipboard.writeText(text).then(function () {
             var backData = {MethodName: "CopyToClipboard", Code: "1", Data: "Seccess"};
             unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
