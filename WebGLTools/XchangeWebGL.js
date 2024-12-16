@@ -45,6 +45,11 @@ window.XchangeWebGL = {
         button.style.top = y + "px";
         // button.style.opacity =0;
  
+		alert(button.style.width);
+		alert(button.style.height);
+		alert(button.style.left);
+		alert(button.style.top);
+ 
         if (id == 1) {
             eventName = "CopyToClipboard";
         }
