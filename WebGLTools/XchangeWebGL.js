@@ -45,10 +45,7 @@ window.XchangeWebGL = {
         button.style.top = y + "px";
         // button.style.opacity =0;
  
-		alert(button.style.width);
-		alert(button.style.height);
-		alert(button.style.left);
-		alert(button.style.top);
+		alert("宽:"+button.style.width + "  高:"+button.style.height + " X:"+button.style.left + "  Y"+ button.style.top+"画布大小" + window.innerHeight +":"+window.innerWidth);
  
         if (id == 1) {
             eventName = "CopyToClipboard";
