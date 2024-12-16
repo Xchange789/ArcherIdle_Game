@@ -30,6 +30,10 @@ window.XchangeWebGL = {
     },
     //创建按钮
     CreateVirtualBtn: function (data, width, height, x, y) {
+        var info = JSON.parse(data);
+        var id = info["id"];
+        var msg = info["msg"];
+        var eventName = "";
         var button = document.createElement("button");
         button.innerHTML = "Virtual Button";
         button.id = id;
@@ -39,12 +43,7 @@ window.XchangeWebGL = {
         button.style.left = x + "px";
         button.style.top = y + "px";
         // button.style.opacity =0;
-
-
-        var info = JSON.parse(data);
-        var id = info["id"];
-        var msg = info["msg"];
-        var eventName = "";
+ 
         if (id == 1) {
             eventName = "CopyToClipboard";
         }
