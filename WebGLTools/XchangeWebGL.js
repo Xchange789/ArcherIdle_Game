@@ -41,8 +41,8 @@ window.XchangeWebGL = {
         button.style.width = width + "px";
         button.style.height = height + "px";
         button.style.position = "absolute";
-        button.style.left = x + "px";
-        button.style.top = y + "px";
+        button.style.left = 0 + "px";
+        button.style.top = 0 + "px";
         // button.style.opacity =0;
  
         if (id == 1) {
