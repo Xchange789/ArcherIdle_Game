@@ -30,7 +30,7 @@ window.XchangeWebGL = {
     },
     //创建按钮
     CreateVirtualBtn: function (data, width, height, x, y) {
-        alert("CreateVirtualBtn");
+        // alert("CreateVirtualBtn");
 		var info = JSON.parse(data);
         var id = info["id"];
         var msg = info["msg"];
@@ -45,7 +45,7 @@ window.XchangeWebGL = {
         button.style.top = y + "px";
         // button.style.opacity =0;
  
-		alert("宽:"+button.style.width + "  高:"+button.style.height + " X:"+button.style.left + "  Y"+ button.style.top+"画布大小" + window.innerHeight +":"+window.innerWidth);
+		alert("宽:"+button.style.width + "  高:"+button.style.height + " X:"+button.style.left + "  Y"+ button.style.top+"画布大小" + window.innerWidth  +":"+ window.innerHeight);
  
         if (id == 1) {
             eventName = "CopyToClipboard";
@@ -62,7 +62,7 @@ window.XchangeWebGL = {
 
         var backData = {MethodName: "CreateVirtualBtn", Code: "1", Data: eventName};
         unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
-		alert("CreateVirtualBtn End");
+		// alert("CreateVirtualBtn End");
     },
     //销毁按钮
     DestroyButton: function (id) {
