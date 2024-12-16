@@ -36,7 +36,7 @@ window.XchangeWebGL = {
     GetWebGLWindowsSize: function (){
         var backData = {MethodName: "GetWebGLWindowsSize", Code: "1", Data: window.innerWidth + "," + window.innerHeight};
         unityInstanceRef.SendMessage('XchangeWebGL', 'XchangeWebGLCallBack', JSON.stringify(backData));
-    }
+    },
 
     //创建按钮
     CreateVirtualBtn: function (data, width, height, x, y) {
