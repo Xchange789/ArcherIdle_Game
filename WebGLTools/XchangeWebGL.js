@@ -1,14 +1,11 @@
 window.XchangeWebGL = {
-    ShowInputField: function (x, y, width, height, data) {
+    ShowInputField: function (x, y, width, data) {
         var inputField = document.getElementById('unityInputField');
-        inputField.style.width = width + "px";
-        inputField.style.height = height + "px";
-        inputField.style.position = "absolute";
-        inputField.style.left = (x - 4) + "px";
-        inputField.style.top  = (y - 2) + "px";
+        inputField.style.left = x + '%';
+        inputField.style.top = y + '%';
+        inputField.style.width = width + '%';
         inputField.value = data;
         inputField.style.visibility = "visible";
-        inputField.style.opacity = 0;
         inputField.focus();
     },
 
@@ -56,19 +53,19 @@ window.XchangeWebGL = {
         button.style.position = "absolute";
         button.style.left = x + "px";
         button.style.top = y + "px";
-        button.style.opacity =0;
+        // button.style.opacity =0;
 
-        // alert("宽:"+button.style.width + "  高:"+button.style.height + " X:"+button.style.left + "  Y"+ button.style.top+"画布大小" + window.innerWidth  +":"+ window.innerHeight);
+        alert("宽:"+button.style.width + "  高:"+button.style.height + " X:"+button.style.left + "  Y"+ button.style.top+"画布大小" + window.innerWidth  +":"+ window.innerHeight);
 
         if (id == 1) {
             eventName = "CopyToClipboard";
         }
         button.onclick = function () {
-            // alert("Button Click!");
+            alert("Button Click!");
             if (id == 1) {
                 XchangeWebGL.CopyToClipboard(msg);
             }
-            // alert(id);
+            alert(id);
         };
         // 将按钮添加到页面中
         document.body.appendChild(button);
