@@ -1,0 +1,24 @@
+{
+    "ForceUpdateGame":false,
+    "GameVersion":"0.1",
+    "InternalGameVersion":100,
+    "TestAccountList":["#1611553291504967680","#1670988893379624960","#1614460190823014400","#1631123006426316800","#1611547073440899072","#1613496758686703616","#1613498751455059968"],
+    "SourceVersionData":{
+        "InternalResourceVersion":1,
+        "UpdatePrefixUri":"StreamingAssets/",
+    "VersionListLength":206055,
+"VersionListHashCode":2018976823,
+"VersionListMd5Code":"be31011b912dbf25bbeb0c2264729bd8",
+"VersionListCompressedLength":99562,
+"VersionListCompressedHashCode":-589103115,
+    },
+    "TestSourceVersionData":{
+        "InternalResourceVersion":1,
+        "UpdatePrefixUri":"StreamingAssets/",
+        "VersionListLength":206055,
+"VersionListHashCode":2018976823,
+"VersionListMd5Code":"be31011b912dbf25bbeb0c2264729bd8",
+"VersionListCompressedLength":99562,
+"VersionListCompressedHashCode":-589103115,
+    }
+}

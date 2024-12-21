@@ -92,7 +92,8 @@
             initDataRaw: this.m_telegram.WebApp.initData,
             platform: this.m_telegram.WebApp.platform,
             themeParams: this.m_telegram.WebApp.themeParams,
-            version: this.m_telegram.WebApp.version
+            version: this.m_telegram.WebApp.version,
+            startParam: this.m_telegram.WebApp.initDataUnsafe.start_param ?? "" 
         };
     }
     addToHomeScreen()
@@ -122,6 +123,6 @@ var platform = new Platform();
 
     // Expand the application.
     //postEvent('web_app_expand');
-    platform.m_telegram.WebApp.expand();
-    //platform.m_telegram.WebApp.requestFullscreen();
+    //platform.m_telegram.WebApp.expand();
+    platform.m_telegram.WebApp.requestFullscreen();
 })();

@@ -9,8 +9,15 @@ window.addEventListener("load", function () {
   var canvas = document.querySelector("#unity-canvas");
   var loadingBar = document.querySelector("#unity-loading-bar");
   var progressBarFull = document.querySelector("#unity-progress-bar-full");
+  var fullscreenButton = document.querySelector("#unity-fullscreen-button");
   var warningBanner = document.querySelector("#unity-warning");
 
+  
+  document.addEventListener("fullscreenchange", function (){
+      if (document.fullscreenElement){
+          document.exitFullscreen();
+      }
+  });
   // Shows a temporary message banner/ribbon for a few seconds, or
   // a permanent error message on top of the canvas if type=='error'.
   // If type=='warning', a yellow highlight color is used.
@@ -45,7 +52,7 @@ window.addEventListener("load", function () {
     streamingAssetsUrl: "StreamingAssets",
     companyName: "xchange",
     productName: "ArcherIdle",
-    productVersion: "0.1.3.2",
+    productVersion: "0.1.3.19",
     showBanner: unityShowBanner,
   };
 
@@ -62,6 +69,8 @@ window.addEventListener("load", function () {
     meta.name = 'viewport';
     meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
     document.getElementsByTagName('head')[0].appendChild(meta);
+    container.className = "unity-mobile";
+    canvas.className = "unity-mobile";
   }
 
   canvas.style.background = "url('" + buildUrl + "/0.1.3.2.jpg') center / cover";
