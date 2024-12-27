@@ -52,7 +52,7 @@ window.addEventListener("load", function () {
     streamingAssetsUrl: "StreamingAssets",
     companyName: "xchange",
     productName: "ArcherIdle",
-    productVersion: "0.1.3.24",
+    productVersion: "0.1.3.2",
     showBanner: unityShowBanner,
   };
 
