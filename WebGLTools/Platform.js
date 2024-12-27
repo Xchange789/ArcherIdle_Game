@@ -125,4 +125,6 @@ var platform = new Platform();
     //postEvent('web_app_expand');
     //platform.m_telegram.WebApp.expand();
     platform.m_telegram.WebApp.requestFullscreen();
+    //if (platform.m_telegram.isOrientationLocked == false)
+        platform.m_telegram.WebApp.lockOrientation();
 })();
