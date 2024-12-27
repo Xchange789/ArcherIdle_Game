@@ -48,7 +48,7 @@ window.TelegramSDK = {
 
     DoShare : function (u, t)
     {
-        platform.openTelegramLink("https://t.me/share?" + new URLSearchParams({
+        platform.openTelegramLink("https://t.me/share/url?" + new URLSearchParams({
             url: u,
             text: t || ""
         }).toString().replace(/\+/g, "%20"));
