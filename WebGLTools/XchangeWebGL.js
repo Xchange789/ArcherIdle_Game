@@ -10,8 +10,9 @@ window.XchangeWebGL = {
         inputField.style.visibility = "visible";
         inputField.style.opacity = 0;
         inputField.focus();
-        inputField.addEventListener('input', (e) => {
-            console.log('input:', e.data);
+        inputField.addEventListener('change', (e) => {
+            console.log('change:', e.data);
+            inputField.value=e.data;
           });
         //   inputField.addEventListener('compositionstart', (e) => {
         //       console.log('Composition start');
