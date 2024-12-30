@@ -35,17 +35,17 @@ window.XchangeWebGL = {
     },
 
     HideInputField: function () {
-        var inputField = document.getElementById('unityInputField');
-        unityInstanceRef.SendMessage('WebGLTextInput', 'OnInputChanged', inputField.value);
-        inputField.style.visibility = "hidden";
-        inputField.blur();
+        // var inputField = document.getElementById('unityInputField');
+        // unityInstanceRef.SendMessage('WebGLTextInput', 'OnInputChanged', inputField.value);
+        // inputField.style.visibility = "hidden";
+        // inputField.blur();
     },
 
     SendInputToUnity: function () {
-        var inputField = document.getElementById('unityInputField');
-        var inputValue = inputField.value;
-        // 将输入的内容发送到Unity中
-        unityInstanceRef.SendMessage('WebGLTextInput', 'OnInputChanged', inputValue);
+        // var inputField = document.getElementById('unityInputField');
+        // var inputValue = inputField.value;
+        // // 将输入的内容发送到Unity中
+        // unityInstanceRef.SendMessage('WebGLTextInput', 'OnInputChanged', inputValue);
     },
 
     SyncDB: function () {
