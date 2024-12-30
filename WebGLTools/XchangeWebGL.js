@@ -44,11 +44,12 @@ window.XchangeWebGL = {
     SendInputToUnity: function () {
         var inputField = document.getElementById('unityInputField');
         var inputValue = inputField.value;
-        
+        console.log(inputValue);
         // 将输入的内容发送到Unity中
-        unityInstanceRef.SendMessage('WebGLTextInput', 'OnInputChanged', inputValue);
-        console.log(inputValue.innerText );
+        // unityInstanceRef.SendMessage('WebGLTextInput', 'OnInputChanged', inputValue);
+        // console.log(inputValue.innerText );
     },
+
 
     SyncDB: function () {
         FS.syncfs(false, function (err) {
