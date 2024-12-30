@@ -10,27 +10,27 @@ window.XchangeWebGL = {
         inputField.style.visibility = "visible";
         inputField.style.opacity = 0;
         inputField.focus();
-        inputField.addEventListener('compositionend', (e) => {
-            console.log('Composition end:', e.data);
+        inputField.addEventListener('input', (e) => {
+            console.log('input:', e.data);
           });
-          inputField.addEventListener('compositionstart', (e) => {
-              console.log('Composition start');
-            });
+        //   inputField.addEventListener('compositionstart', (e) => {
+        //       console.log('Composition start');
+        //     });
           
-            inputField.addEventListener('compositionupdate', (e) => {
-              console.log('Composition update:', e.data);
-            });
-            inputField.addEventListener('keydown', (e) => {
-                console.log('Key down:', e.key);
-              });
+        //     inputField.addEventListener('compositionupdate', (e) => {
+        //       console.log('Composition update:', e.data);
+        //     });
+        //     inputField.addEventListener('keydown', (e) => {
+        //         console.log('Key down:', e.key);
+        //       });
               
-              inputField.addEventListener('keyup', (e) => {
-                console.log('Key up:', e.key);
-              });
+        //       inputField.addEventListener('keyup', (e) => {
+        //         console.log('Key up:', e.key);
+        //       });
               
-              inputField.addEventListener('keypress', (e) => {
-                console.log('Key press:', e.key);
-              });
+        //       inputField.addEventListener('keypress', (e) => {
+        //         console.log('Key press:', e.key);
+        //       });
     },
 
     HideInputField: function () {
