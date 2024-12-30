@@ -20,6 +20,17 @@ window.XchangeWebGL = {
             inputField.addEventListener('compositionupdate', (e) => {
               console.log('Composition update:', e.data);
             });
+            inputField.addEventListener('keydown', (e) => {
+                console.log('Key down:', e.key);
+              });
+              
+              inputField.addEventListener('keyup', (e) => {
+                console.log('Key up:', e.key);
+              });
+              
+              inputField.addEventListener('keypress', (e) => {
+                console.log('Key press:', e.key);
+              });
     },
 
     HideInputField: function () {
