@@ -10,10 +10,10 @@ window.XchangeWebGL = {
         inputField.style.visibility = "visible";
         inputField.style.opacity = 0;
         inputField.focus();
-        inputField.addEventListener('change', (e) => {
-            console.log('change:', e.data);
-            inputField.value=e.data;
-          });
+        // inputField.addEventListener('change', (e) => {
+        //     console.log('change:', e.data);
+        //     inputField.value=e.data;
+        //   });
         //   inputField.addEventListener('compositionstart', (e) => {
         //       console.log('Composition start');
         //     });
@@ -35,17 +35,19 @@ window.XchangeWebGL = {
     },
 
     HideInputField: function () {
-        // var inputField = document.getElementById('unityInputField');
-        // unityInstanceRef.SendMessage('WebGLTextInput', 'OnInputChanged', inputField.value);
-        // inputField.style.visibility = "hidden";
-        // inputField.blur();
+        var inputField = document.getElementById('unityInputField');
+        unityInstanceRef.SendMessage('WebGLTextInput', 'OnInputChanged', inputField.value);
+        inputField.style.visibility = "hidden";
+        inputField.blur();
     },
 
     SendInputToUnity: function () {
-        // var inputField = document.getElementById('unityInputField');
-        // var inputValue = inputField.value;
-        // // 将输入的内容发送到Unity中
-        // unityInstanceRef.SendMessage('WebGLTextInput', 'OnInputChanged', inputValue);
+        var inputField = document.getElementById('unityInputField');
+        var inputValue = inputField.value;
+        
+        // 将输入的内容发送到Unity中
+        unityInstanceRef.SendMessage('WebGLTextInput', 'OnInputChanged', inputValue);
+        console.log(inputValue.innerText );
     },
 
     SyncDB: function () {
