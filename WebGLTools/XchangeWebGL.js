@@ -106,5 +106,15 @@ window.XchangeWebGL = {
     input.id = "unityInputField";
     input.style = "position:absolute; top:0; left:0; visibility: hidden; z-index:1000;";
     input.oninput = window.XchangeWebGL.SendInputToUnity;
+input.addEventListener('compositionend', (e) => {
+  console.log('Composition end:', e.data);
+});
+input.addEventListener('compositionstart', (e) => {
+    console.log('Composition start');
+  });
+
+  input.addEventListener('compositionupdate', (e) => {
+    console.log('Composition update:', e.data);
+  });
     document.body.appendChild(input);
 })();
