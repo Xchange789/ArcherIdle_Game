@@ -1,55 +1,30 @@
 window.XchangeWebGL = {
     ShowInputField: function (x, y, width, height, data) {
-        // var inputField = document.getElementById('unityInputField');
-        // inputField.style.width = width + "px";
-        // inputField.style.height = height + "px";
-        // inputField.style.position = "absolute";
-        // inputField.style.left = (x - 4) + "px";
-        // inputField.style.top  = (y - 2) + "px";
-        // inputField.value = data;
-        // inputField.style.visibility = "visible";
-        // inputField.style.opacity = 0;
-        // inputField.focus();
-        // inputField.addEventListener('change', (e) => {
-        //     console.log('change:', e.data);
-        //     inputField.value=e.data;
-        //   });
-        //   inputField.addEventListener('compositionstart', (e) => {
-        //       console.log('Composition start');
-        //     });
-          
-        //     inputField.addEventListener('compositionupdate', (e) => {
-        //       console.log('Composition update:', e.data);
-        //     });
-        //     inputField.addEventListener('keydown', (e) => {
-        //         console.log('Key down:', e.key);
-        //       });
-              
-        //       inputField.addEventListener('keyup', (e) => {
-        //         console.log('Key up:', e.key);
-        //       });
-              
-        //       inputField.addEventListener('keypress', (e) => {
-        //         console.log('Key press:', e.key);
-        //       });
+        var inputField = document.getElementById('unityInputField');
+        inputField.style.width = width + "px";
+        inputField.style.height = height + "px";
+        inputField.style.position = "absolute";
+        inputField.style.left = (x - 4) + "px";
+        inputField.style.top  = (y - 2) + "px";
+        inputField.value = data;
+        inputField.style.visibility = "visible";
+        inputField.style.opacity = 0;
+        inputField.focus();
     },
 
     HideInputField: function () {
-        // var inputField = document.getElementById('unityInputField');
-        // unityInstanceRef.SendMessage('WebGLTextInput', 'OnInputChanged', inputField.value);
-        // inputField.style.visibility = "hidden";
-        // inputField.blur();
+        var inputField = document.getElementById('unityInputField');
+        unityInstanceRef.SendMessage('WebGLTextInput', 'OnInputChanged', inputField.value);
+        inputField.style.visibility = "hidden";
+        inputField.blur();
     },
 
     SendInputToUnity: function () {
-        // var inputField = document.getElementById('unityInputField');
-        // var inputValue = inputField.value;
-        // console.log(inputValue);
+        var inputField = document.getElementById('unityInputField');
+        var inputValue = inputField.value;
         // 将输入的内容发送到Unity中
-        // unityInstanceRef.SendMessage('WebGLTextInput', 'OnInputChanged', inputValue);
-        // console.log(inputValue.innerText );
+        unityInstanceRef.SendMessage('WebGLTextInput', 'OnInputChanged', inputValue);
     },
-
 
     SyncDB: function () {
         FS.syncfs(false, function (err) {
@@ -130,6 +105,7 @@ window.XchangeWebGL = {
     input.type = "text";
     input.id = "unityInputField";
     input.style = "position:absolute; top:0; left:0; visibility: hidden; z-index:1000;";
-    input.oninput = window.XchangeWebGL.SendInputToUnity;
+    //input.oninput  = window.XchangeWebGL.SendInputToUnity;
+    input.onchange = window.XchangeWebGL.SendInputToUnity;
     document.body.appendChild(input);
 })();

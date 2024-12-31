@@ -121,10 +121,13 @@ var platform = new Platform();
         return;
     }
 
-    // Expand the application.
-    //postEvent('web_app_expand');
-    //platform.m_telegram.WebApp.expand();
     platform.m_telegram.WebApp.requestFullscreen();
-    //if (platform.m_telegram.isOrientationLocked == false)
-        platform.m_telegram.WebApp.lockOrientation();
+    platform.m_telegram.WebApp.lockOrientation();
+
+    var canvas = document.querySelector("#unity-canvas");
+    canvas.addEventListener('webglcontextlost', (ev)=> {
+        platform.m_telegram.WebApp.close();
+    }, false);
+    
+    
 })();
